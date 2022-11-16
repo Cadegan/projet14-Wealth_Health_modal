@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
+// import Calendar from "../../components/Calendar";
 
 export default function Home() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -28,31 +30,32 @@ export default function Home() {
         <a href="employee-list.html">View Current Employees</a>
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit(setData)}>
-          <div className="firstNameGroup">
-            <label className="firstNameLabel">
-              First Name
-              <input
-                type="text"
-                className="userForm-input firstNameInput"
-                {...register("firstName", { required: true, minLength: 3 })}
-              />
-              <p className="error-message">{errors.name?.message}</p>
-            </label>
-          </div>
-          <div className="lastNameGroup">
-            <label className="lastNameLabel">
-              Last Name
-              <input
-                type="text"
-                className="userForm-input lastNameInput"
-                {...register("lastName", { required: true, minLength: 3 })}
-              />
-              <p className="error-message">{errors.name?.message}</p>
-            </label>
-          </div>
-          <div className="birthDayGroup">
-            <label className="birthDayLabel"></label>
-          </div>
+          <section className="firstNameGroup">
+            <label className="firstNameLabel">First Name</label>
+            <input
+              type="text"
+              className="userForm-input firstNameInput"
+              {...register("firstName", { required: true, minLength: 3 })}
+            />
+            {errors.firstName && (
+              <p className="text-error">Please check the First Name</p>
+            )}
+          </section>
+          <section className="lastNameGroup">
+            <label className="lastNameLabel">Last Name</label>
+            <input
+              type="text"
+              className="userForm-input lastNameInput"
+              {...register("lastName", { required: true, minLength: 3 })}
+            />
+            {errors.lastName && (
+              <p className="text-error">Please check the Last Name</p>
+            )}
+          </section>
+          <section className="birthDayGroup">
+            <label className="birthDayLabel">Date of Birth</label>
+            {/* <Calendar control={control}></Calendar> */}
+          </section>
           <button className="button" type="submit">
             Save
           </button>
