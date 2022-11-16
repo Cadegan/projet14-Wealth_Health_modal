@@ -8,22 +8,16 @@ export default function Home() {
     formState: { errors },
   } = useForm();
 
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
 
   useEffect(() => {
-    sessionStorage.setItem("data", JSON.stringify(data));
+    /* This is a ternary operator. It is saying if there is something in localStorage, then parse it
+    and set it to employees. If there is nothing in localStorage, then set employees to an empty
+    array. */
+    const employees = JSON.parse(localStorage.getItem("employees")) || [];
+    employees.push(data);
+    localStorage.setItem("employees", JSON.stringify(employees));
   });
-
-  //   // localStorage
-  //   const localStorageData = (data) => {
-  //     const employees = JSON.parse(localStorage.getItem("employees")) || [];
-  //     const employee = {
-  //       firstName: firstName.value,
-  //       lastName: lastName.value,
-  //     };
-  //     employees.push(data);
-  //     localStorage.setItem("employees", JSON.stringify(data));
-  //   };
 
   return (
     <main className="main">
@@ -55,6 +49,9 @@ export default function Home() {
               />
               <p className="error-message">{errors.name?.message}</p>
             </label>
+          </div>
+          <div className="birthDayGroup">
+            <label className="birthDayLabel"></label>
           </div>
           <button className="button" type="submit">
             Save
