@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
-// import Calendar from "../../components/Calendar";
+import Calendar from "../../components/Calendar";
 
 export default function Home() {
   const {
@@ -53,8 +53,7 @@ export default function Home() {
             )}
           </section>
           <section className="birthDayGroup">
-            <label className="birthDayLabel">Date of Birth</label>
-            {/* <Calendar control={control}></Calendar> */}
+            <Calendar control={control}></Calendar>
           </section>
           <button className="button" type="submit">
             Save

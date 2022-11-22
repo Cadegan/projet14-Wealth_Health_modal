@@ -20,10 +20,10 @@ import {
 } from "@material-ui/pickers";
 // import MuiAutoComplete from "./MuiAutoComplete";
 
-const Calendar = ({ control }) => (
+export default ({ control }) => (
   <div className="container">
     <section>
-      <label>Date of Birth</label>
+      <label>MUI Picker</label>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Controller
           name="MUIPicker"
@@ -32,11 +32,11 @@ const Calendar = ({ control }) => (
             <KeyboardDatePicker
               margin="normal"
               id="date-picker-dialog"
+              label="Date picker dialog"
               format="MM/dd/yyyy"
               KeyboardButtonProps={{
                 "aria-label": "change date",
               }}
-              required="true"
               {...rest}
             />
           )}
@@ -45,5 +45,3 @@ const Calendar = ({ control }) => (
     </section>
   </div>
 );
-
-export default Calendar;
