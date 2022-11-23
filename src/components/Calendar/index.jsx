@@ -1,32 +1,20 @@
 import * as React from "react";
 import { Controller } from "react-hook-form";
 import DateFnsUtils from "@date-io/date-fns";
-// import {
-//   TextField,
-//   Checkbox,
-//   Select,
-//   MenuItem,
-//   Switch,
-//   RadioGroup,
-//   FormControlLabel,
-//   ThemeProvider,
-//   Radio,
-//   createMuiTheme,
-//   Slider,
-// } from "@material-ui/core";
 import {
   KeyboardDatePicker,
   MuiPickersUtilsProvider,
 } from "@material-ui/pickers";
-// import MuiAutoComplete from "./MuiAutoComplete";
 
-const Calendar = ({ control }) => (
-  <div className="container">
-    <section>
+const Calendar = ({ control }) => {
+  // const nodeRef = React.useRef(null);
+  return (
+    <>
       <label>Date of Birth</label>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Controller
-          name="MUIPicker"
+          // nodeRef={nodeRef}
+          name="DateOfBirth"
           control={control}
           render={({ field: { ref, ...rest } }) => (
             <KeyboardDatePicker
@@ -36,14 +24,14 @@ const Calendar = ({ control }) => (
               KeyboardButtonProps={{
                 "aria-label": "change date",
               }}
-              required="true"
+              // required="true"
+              // rules={{ required: true }}
               {...rest}
             />
           )}
         />
       </MuiPickersUtilsProvider>
-    </section>
-  </div>
-);
-
+    </>
+  );
+};
 export default Calendar;
