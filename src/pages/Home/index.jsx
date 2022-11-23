@@ -1,7 +1,8 @@
 import { Controller, useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import Calendar from "../../components/Calendar";
-import { TextField } from "@material-ui/core";
+// import { TextField } from "@material-ui/core";
+import TextField from "@mui/material/TextField";
 
 export default function Home() {
   const {
@@ -44,16 +45,31 @@ export default function Home() {
           </section> */}
 
           <section className="firstNameSection">
-            <label for="firstName" className="firstNameLabel">
+            {/* <label htmlFor="firstName" className="firstNameLabel">
               First Name
-            </label>
+            </label> */}
             <Controller
               rules={{ required: true, minLength: 3 }}
-              render={({ field }) => <TextField {...field} />}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  required
+                  id="firstName"
+                  name="firstName"
+                  label="First name"
+                  // fullWidth
+                  autoComplete="given-name"
+                  variant="standard"
+                />
+              )}
               name="firstName"
               control={control}
             />
-            {errors.firstName && <span className="text-error">required</span>}
+            {errors.firstName && (
+              <span className="text-error">
+                Please enter at least 3 characters
+              </span>
+            )}
           </section>
 
           {/* <section className="lastNameSection">
@@ -69,16 +85,31 @@ export default function Home() {
           </section> */}
 
           <section className="lastNameSection">
-            <label for="lastName" className="lastNameLabel">
+            {/* <label htmlFor="lastName" className="lastNameLabel">
               Last Name
-            </label>
+            </label> */}
             <Controller
               rules={{ required: true, minLength: 3 }}
-              render={({ field }) => <TextField {...field} />}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  required
+                  id="lastName"
+                  name="lastName"
+                  label="Last name"
+                  // fullWidth
+                  autoComplete="family-name"
+                  variant="standard"
+                />
+              )}
               name="lastName"
               control={control}
             />
-            {errors.lastName && <span className="text-error">required</span>}
+            {errors.lastName && (
+              <span className="text-error">
+                Please enter at least 3 characters
+              </span>
+            )}
           </section>
 
           <section className="birthDaySection">
@@ -87,12 +118,23 @@ export default function Home() {
 
           <section className="addressSection">
             <div className="street">
-              <label for="streetAddress" className="streetAddressLabel">
+              {/* <label htmlFor="streetAddress" className="streetAddressLabel">
                 Street
-              </label>
+              </label> */}
               <Controller
                 rules={{ required: true, minLength: 1 }}
-                render={({ field }) => <TextField {...field} />}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    required
+                    id="streetAddress"
+                    name="streetAddress"
+                    label="Street"
+                    // fullWidth
+                    autoComplete="street-address"
+                    variant="standard"
+                  />
+                )}
                 name="streetAddress"
                 control={control}
               />
@@ -104,12 +146,23 @@ export default function Home() {
 
           <section className="citySection">
             <div className="city">
-              <label for="cityAddress" className="cityAddressLabel">
+              {/* <label htmlFor="cityAddress" className="cityAddressLabel">
                 City
-              </label>
+              </label> */}
               <Controller
                 rules={{ required: true, minLength: 1 }}
-                render={({ field }) => <TextField {...field} />}
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    required
+                    id="cityAddress"
+                    name="cityAddress"
+                    label="City"
+                    // fullWidth
+                    autoComplete="city-address"
+                    variant="standard"
+                  />
+                )}
                 name="cityAddress"
                 control={control}
               />
