@@ -37,7 +37,7 @@ export default function Home() {
             <input
               type="text"
               className="userForm-input firstNameInput"
-              {...register("firstName", { required: true, minLength: 3 })}
+              {...register("firstName", { required: true, minLength: 2 })}
             />
             {errors.firstName && (
               <p className="text-error">Please check the First Name</p>
@@ -49,7 +49,7 @@ export default function Home() {
               First Name
             </label> */}
             <Controller
-              rules={{ required: true, minLength: 3 }}
+              rules={{ required: true, minLength: 2 }}
               render={({ field }) => (
                 <TextField
                   {...field}
@@ -67,7 +67,7 @@ export default function Home() {
             />
             {errors.firstName && (
               <span className="text-error">
-                Please enter at least 3 characters
+                Please enter at least 2 characters
               </span>
             )}
           </section>
@@ -77,7 +77,7 @@ export default function Home() {
             <input
               type="text"
               className="userForm-input lastNameInput"
-              {...register("lastName", { required: true, minLength: 3 })}
+              {...register("lastName", { required: true, minLength: 2 })}
             />
             {errors.lastName && (
               <p className="text-error">Please check the Last Name</p>
@@ -89,7 +89,7 @@ export default function Home() {
               Last Name
             </label> */}
             <Controller
-              rules={{ required: true, minLength: 3 }}
+              rules={{ required: true, minLength: 2 }}
               render={({ field }) => (
                 <TextField
                   {...field}
@@ -107,7 +107,7 @@ export default function Home() {
             />
             {errors.lastName && (
               <span className="text-error">
-                Please enter at least 3 characters
+                Please enter at least 2 characters
               </span>
             )}
           </section>
