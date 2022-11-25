@@ -14,6 +14,15 @@ export default function Home() {
 
   const [data, setData] = useState(null);
 
+  const [value, setValue] = useState("");
+  const [valid, setValid] = useState(true);
+
+  const handleValidation = (e) => {
+    setValue(e.target.value);
+    const reg = new RegExp("[a-z]");
+    setValid(reg.test(e.target.value));
+  };
+
   useEffect(() => {
     /* This is a ternary operator. It is saying if there is something in localStorage, then parse it
     and set it to employees. If there is nothing in localStorage, then set employees to an empty
@@ -42,9 +51,10 @@ export default function Home() {
                   id="firstName"
                   name="firstName"
                   label="First name"
-                  // fullWidth
                   autoComplete="given-name"
-                  // variant="standard"
+                  onChange={(e) => handleValidation(e)}
+                  inputProps={{ pattern: "[a-z]" }}
+                  error={!valid}
                 />
               )}
               name="firstName"
