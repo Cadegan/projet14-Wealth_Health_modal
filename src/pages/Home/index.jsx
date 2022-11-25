@@ -21,6 +21,7 @@ export default function Home() {
     setValue(e.target.value);
     const reg = new RegExp("[a-z]");
     setValid(reg.test(e.target.value));
+    console.log("isValid?", reg.test(e.target.value));
   };
 
   useEffect(() => {
@@ -43,25 +44,30 @@ export default function Home() {
         <form onSubmit={handleSubmit(setData)}>
           <section className="firstNameSection">
             <Controller
-              rules={{ required: true, minLength: 2 }}
-              render={({ field }) => (
+              name="firstName"
+              control={control}
+              rules={{
+                required: true,
+                minLength: 2,
+                maxLength: 15,
+              }}
+              render={({ field: { ref, ...field } }) => (
                 <TextField
                   {...field}
-                  required
+                  required={true}
                   id="firstName"
-                  name="firstName"
                   label="First name"
                   autoComplete="given-name"
+                  value={value}
+                  // innerRef={ref}
                   onChange={(e) => handleValidation(e)}
                   inputProps={{ pattern: "[a-z]" }}
                   error={!valid}
                 />
               )}
-              name="firstName"
-              control={control}
             />
             {errors.firstName && (
-              <span className="text-error">
+              <span className="text-error" role="alert">
                 Please enter at least 2 characters
               </span>
             )}
