@@ -32,22 +32,7 @@ export default function Home() {
         <a href="employee-list.html">View Current Employees</a>
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit(setData)}>
-          {/* <section className="firstNameSection">
-            <label className="firstNameLabel">First Name</label>
-            <input
-              type="text"
-              className="userForm-input firstNameInput"
-              {...register("firstName", { required: true, minLength: 2 })}
-            />
-            {errors.firstName && (
-              <p className="text-error">Please check the First Name</p>
-            )}
-          </section> */}
-
           <section className="firstNameSection">
-            {/* <label htmlFor="firstName" className="firstNameLabel">
-              First Name
-            </label> */}
             <Controller
               rules={{ required: true, minLength: 2 }}
               render={({ field }) => (
@@ -59,7 +44,7 @@ export default function Home() {
                   label="First name"
                   // fullWidth
                   autoComplete="given-name"
-                  variant="standard"
+                  // variant="standard"
                 />
               )}
               name="firstName"
@@ -72,22 +57,7 @@ export default function Home() {
             )}
           </section>
 
-          {/* <section className="lastNameSection">
-            <label className="lastNameLabel">Last Name</label>
-            <input
-              type="text"
-              className="userForm-input lastNameInput"
-              {...register("lastName", { required: true, minLength: 2 })}
-            />
-            {errors.lastName && (
-              <p className="text-error">Please check the Last Name</p>
-            )}
-          </section> */}
-
           <section className="lastNameSection">
-            {/* <label htmlFor="lastName" className="lastNameLabel">
-              Last Name
-            </label> */}
             <Controller
               rules={{ required: true, minLength: 2 }}
               render={({ field }) => (
@@ -97,9 +67,7 @@ export default function Home() {
                   id="lastName"
                   name="lastName"
                   label="Last name"
-                  // fullWidth
                   autoComplete="family-name"
-                  variant="standard"
                 />
               )}
               name="lastName"
@@ -118,9 +86,6 @@ export default function Home() {
 
           <section className="addressSection">
             <div className="street">
-              {/* <label htmlFor="streetAddress" className="streetAddressLabel">
-                Street
-              </label> */}
               <Controller
                 rules={{ required: true, minLength: 1 }}
                 render={({ field }) => (
@@ -130,9 +95,7 @@ export default function Home() {
                     id="streetAddress"
                     name="streetAddress"
                     label="Street"
-                    // fullWidth
                     autoComplete="street-address"
-                    variant="standard"
                   />
                 )}
                 name="streetAddress"
@@ -146,9 +109,6 @@ export default function Home() {
 
           <section className="citySection">
             <div className="city">
-              {/* <label htmlFor="cityAddress" className="cityAddressLabel">
-                City
-              </label> */}
               <Controller
                 rules={{ required: true, minLength: 1 }}
                 render={({ field }) => (
@@ -158,9 +118,7 @@ export default function Home() {
                     id="cityAddress"
                     name="cityAddress"
                     label="City"
-                    // fullWidth
                     autoComplete="city-address"
-                    variant="standard"
                   />
                 )}
                 name="cityAddress"
