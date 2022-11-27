@@ -47,33 +47,42 @@ export default function Home() {
               name="firstName"
               control={control}
               rules={{
-                required: true,
-                minLength: 2,
+                required: "Required",
+                minLength: 3,
                 maxLength: 15,
+                // pattern: "[a-z]",
               }}
-              render={({ field: { ref, ...field } }) => (
+              render={({
+                field: { onChange, value },
+                fieldState: { error },
+              }) => (
                 <TextField
-                  {...field}
+                  // {...field}
                   required={true}
                   id="firstName"
                   label="First name"
                   autoComplete="given-name"
                   value={value}
                   // innerRef={ref}
-                  onChange={(e) => handleValidation(e)}
-                  inputProps={{ pattern: "[a-z]" }}
-                  error={!valid}
+                  onChange={onChange}
+                  inputProps={{
+                    // pattern: "[a-z]",
+                    minLength: 3,
+                    maxLength: 15,
+                  }}
+                  error={!!error}
+                  helperText={error ? error.message : null}
                 />
               )}
             />
             {errors.firstName && (
               <span className="text-error" role="alert">
-                Please enter at least 2 characters
+                Please enter at least 3 characters
               </span>
             )}
           </section>
 
-          <section className="lastNameSection">
+          {/* <section className="lastNameSection">
             <Controller
               rules={{ required: true, minLength: 2 }}
               render={({ field }) => (
@@ -144,7 +153,7 @@ export default function Home() {
                 <span className="text-error">required</span>
               )}
             </div>
-          </section>
+          </section> */}
 
           <button className="button" type="submit">
             Save
