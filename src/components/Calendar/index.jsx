@@ -10,31 +10,59 @@ const Calendar = ({ control }) => {
   // const nodeRef = React.useRef(null);
   return (
     <>
-      {/* <label>Date of Birth</label> */}
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Controller
-          // nodeRef={nodeRef}
           name="DateOfBirth"
           control={control}
-          render={({ field: { ref, ...rest } }) => (
+          rules={{
+            required: {
+              message: "Required",
+              value: true,
+            },
+          }}
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
             <KeyboardDatePicker
-              required
+              required={true}
+              value={value}
               label="Date of Birth"
               autoComplete="date-of-birth"
               variant="standard"
               margin="normal"
               id="date-picker-dialog"
               format="MM/dd/yyyy"
+              onChange={onChange}
               KeyboardButtonProps={{
                 "aria-label": "change date",
               }}
-              // required="true"
-              // rules={{ required: true }}
-              {...rest}
+              error={!!error}
+              helperText={error ? error.message : null}
             />
           )}
-        />
+        ></Controller>
       </MuiPickersUtilsProvider>
+
+      {/* <Controller
+        // nodeRef={nodeRef}
+        name="DateOfBirth"
+        control={control}
+        render={({ field: { ref, ...rest } }) => (
+          <KeyboardDatePicker
+            required
+            label="Date of Birth"
+            autoComplete="date-of-birth"
+            variant="standard"
+            margin="normal"
+            id="date-picker-dialog"
+            format="MM/dd/yyyy"
+            KeyboardButtonProps={{
+              "aria-label": "change date",
+            }}
+            // required="true"
+            // rules={{ required: true }}
+            {...rest}
+          />
+        )}
+      /> */}
     </>
   );
 };

@@ -137,49 +137,11 @@ export default function Home() {
             />
           </section>
 
-          {/* <section className="lastNameSection">
-            <Controller
-              name="lastName"
-              control={control}
-              rules={{
-                required: {
-                  message: "Required",
-                  value: true,
-                },
-                minLength: {
-                  value: 3,
-                  message: "Please enter at least 3 characters",
-                },
-                maxLength: {
-                  value: 15,
-                  message: "Please enter less than 15 characters",
-                },
-              }}
-              render={({
-                field: { onChange, value },
-                fieldState: { error },
-              }) => (
-                <TextField
-                  required={true}
-                  id="lastName"
-                  label="Last name"
-                  value={value}
-                  onChange={onChange}
-                  inputProps={{
-                    pattern: "[A-Za-z]{3,15}",
-                  }}
-                  error={!!error}
-                  helperText={error ? error.message : null}
-                />
-              )}
-            />
-          </section> */}
-
-          {/* 
-
           <section className="birthDaySection">
             <Calendar control={control}></Calendar>
           </section>
+
+          {/* 
 
           <section className="addressSection">
             <div className="street">
