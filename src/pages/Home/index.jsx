@@ -9,20 +9,25 @@ export default function Home() {
     // register,
     handleSubmit,
     control,
-    formState: { errors },
-  } = useForm();
+    // formState: { errors },
+  } = useForm({
+    criteriaMode: "all",
+    mode: "onChange",
+  });
+
+  // console.log("errors", errors);
 
   const [data, setData] = useState(null);
 
-  const [value, setValue] = useState("");
-  const [valid, setValid] = useState(true);
+  // const [value, setValue] = useState("");
+  // const [valid, setValid] = useState(true);
 
-  const handleValidation = (e) => {
-    setValue(e.target.value);
-    const reg = new RegExp("[a-z]");
-    setValid(reg.test(e.target.value));
-    console.log("isValid?", reg.test(e.target.value));
-  };
+  // const handleValidation = (e) => {
+  //   setValue(e.target.value);
+  //   const reg = new RegExp("[A-Za-z]");
+  //   setValid(reg.test(e.target.value));
+  //   console.log("isValid?", reg.test(e.target.value));
+  // };
 
   useEffect(() => {
     /* This is a ternary operator. It is saying if there is something in localStorage, then parse it
@@ -53,7 +58,11 @@ export default function Home() {
                 required: {
                   message: "Required",
                   value: true,
-                  // pattern: "[a-z]",
+                  // pattern: "[A-Za-z]",
+                },
+                pattern: {
+                  value: /[A-Za-z]/,
+                  message: "Please no characters",
                 },
                 minLength: {
                   value: 3,
@@ -63,7 +72,6 @@ export default function Home() {
                   value: 15,
                   message: "Please enter less than 15 characters",
                 },
-                // pattern: "[a-z]",
               }}
               render={({
                 field: { onChange, value },
@@ -71,14 +79,12 @@ export default function Home() {
               }) => (
                 <TextField
                   required={true}
+                  value={value}
                   id="firstName"
                   label="First name"
-                  value={value}
                   onChange={onChange}
                   inputProps={{
-                    pattern: "[a-z]{3,15}",
-                    // minLength: 3,
-                    // maxLength: 15,
+                    pattern: "[A-Za-z]{3,15}",
                   }}
                   error={!!error}
                   helperText={error ? error.message : null}
@@ -119,9 +125,7 @@ export default function Home() {
                   value={value}
                   onChange={onChange}
                   inputProps={{
-                    pattern: "[a-z]{3,15}",
-                    // minLength: 3,
-                    // maxLength: 15,
+                    pattern: "[A-Za-z]{3,15}",
                   }}
                   error={!!error}
                   helperText={error ? error.message : null}
