@@ -42,14 +42,27 @@ export default function Home() {
         <a href="employee-list.html">View Current Employees</a>
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit(setData)}>
+          {/**
+           * First Name Input
+           */}
           <section className="firstNameSection">
             <Controller
               name="firstName"
               control={control}
               rules={{
-                required: "Required",
-                minLength: 3,
-                maxLength: 15,
+                required: {
+                  message: "Required",
+                  value: true,
+                  // pattern: "[a-z]",
+                },
+                minLength: {
+                  value: 3,
+                  message: "Please enter at least 3 characters",
+                },
+                maxLength: {
+                  value: 15,
+                  message: "Please enter less than 15 characters",
+                },
                 // pattern: "[a-z]",
               }}
               render={({
@@ -57,53 +70,67 @@ export default function Home() {
                 fieldState: { error },
               }) => (
                 <TextField
-                  // {...field}
                   required={true}
                   id="firstName"
                   label="First name"
-                  autoComplete="given-name"
                   value={value}
-                  // innerRef={ref}
                   onChange={onChange}
                   inputProps={{
-                    // pattern: "[a-z]",
-                    minLength: 3,
-                    maxLength: 15,
+                    pattern: "[a-z]{3,15}",
+                    // minLength: 3,
+                    // maxLength: 15,
                   }}
                   error={!!error}
                   helperText={error ? error.message : null}
                 />
               )}
             />
-            {errors.firstName && (
-              <span className="text-error" role="alert">
-                Please enter at least 3 characters
-              </span>
-            )}
           </section>
 
-          {/* <section className="lastNameSection">
+          {/**
+           * Last Name Input
+           */}
+          <section className="lastNameSection">
             <Controller
-              rules={{ required: true, minLength: 2 }}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  required
-                  id="lastName"
-                  name="lastName"
-                  label="Last name"
-                  autoComplete="family-name"
-                />
-              )}
               name="lastName"
               control={control}
+              rules={{
+                required: {
+                  message: "Required",
+                  value: true,
+                },
+                minLength: {
+                  value: 3,
+                  message: "Please enter at least 3 characters",
+                },
+                maxLength: {
+                  value: 15,
+                  message: "Please enter less than 15 characters",
+                },
+              }}
+              render={({
+                field: { onChange, value },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  required={true}
+                  id="lastName"
+                  label="Last name"
+                  value={value}
+                  onChange={onChange}
+                  inputProps={{
+                    pattern: "[a-z]{3,15}",
+                    // minLength: 3,
+                    // maxLength: 15,
+                  }}
+                  error={!!error}
+                  helperText={error ? error.message : null}
+                />
+              )}
             />
-            {errors.lastName && (
-              <span className="text-error">
-                Please enter at least 2 characters
-              </span>
-            )}
           </section>
+
+          {/* 
 
           <section className="birthDaySection">
             <Calendar control={control}></Calendar>
