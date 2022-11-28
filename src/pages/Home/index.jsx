@@ -1,8 +1,10 @@
 import { Controller, useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import Calendar from "../../components/Calendar";
+import State from "../../components/State";
 // import { TextField } from "@material-ui/core";
 import TextField from "@mui/material/TextField";
+// import { Autocomplete } from "@mui/material";
 
 export default function Home() {
   const {
@@ -137,12 +139,113 @@ export default function Home() {
             />
           </section>
 
+          {/**
+           * Birth day calendar
+           */}
           <section className="birthDaySection">
             <Calendar control={control}></Calendar>
           </section>
 
-          {/* 
+          {/**
+           * Start date calendar
+           */}
+          <section className="startDateSection">
+            <p>Start Date</p>
+          </section>
 
+          {/**
+           * Adress section
+           */}
+          <section className="adressSection">
+            <p>Adress</p>
+            <div className="street">
+              <Controller
+                name="street"
+                control={control}
+                rules={{
+                  required: {
+                    message: "Required",
+                    value: true,
+                  },
+                  pattern: {
+                    value: /^[_A-z0-9_ -]*((-|\s)*[_A-z_ -])*$/g,
+                    message: "Special characters not allowed",
+                  },
+                  minLength: {
+                    value: 3,
+                    message: "Please enter at least 3 characters",
+                  },
+                  maxLength: {
+                    value: 50,
+                    message: "Please enter less than 50 characters",
+                  },
+                }}
+                render={({
+                  field: { onChange, value },
+                  fieldState: { error },
+                }) => (
+                  <TextField
+                    required={true}
+                    value={value}
+                    id="streetName"
+                    label="Street"
+                    onChange={onChange}
+                    inputProps={{
+                      pattern: "[A-Za-z0-9_ -]{3,15}",
+                    }}
+                    error={!!error}
+                    helperText={error ? error.message : null}
+                  />
+                )}
+              />
+            </div>
+            <div className="city">
+              <Controller
+                name="city"
+                control={control}
+                rules={{
+                  required: {
+                    message: "Required",
+                    value: true,
+                  },
+                  pattern: {
+                    value: /^[_A-z0-9_ -]*((-|\s)*[_A-z_ -])*$/g,
+                    message: "Special characters not allowed",
+                  },
+                  minLength: {
+                    value: 3,
+                    message: "Please enter at least 3 characters",
+                  },
+                  maxLength: {
+                    value: 50,
+                    message: "Please enter less than 50 characters",
+                  },
+                }}
+                render={({
+                  field: { onChange, value },
+                  fieldState: { error },
+                }) => (
+                  <TextField
+                    required={true}
+                    value={value}
+                    id="cityName"
+                    label="City"
+                    onChange={onChange}
+                    inputProps={{
+                      pattern: "[A-Za-z0-9_ -]{3,15}",
+                    }}
+                    error={!!error}
+                    helperText={error ? error.message : null}
+                  />
+                )}
+              />
+            </div>
+            <div className="state">
+              <State control={control}></State>
+            </div>
+          </section>
+
+          {/* 
           <section className="addressSection">
             <div className="street">
               <Controller

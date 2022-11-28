@@ -12,7 +12,7 @@ const Calendar = ({ control }) => {
     <>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Controller
-          name="DateOfBirth"
+          name="birthday"
           control={control}
           rules={{
             required: {
@@ -34,8 +34,8 @@ const Calendar = ({ control }) => {
               KeyboardButtonProps={{
                 "aria-label": "change date",
               }}
-              error={!!error}
-              helperText={error ? error.message : null}
+              // error={!!error}
+              // helperText={error ? error.message : null}
             />
           )}
         ></Controller>
