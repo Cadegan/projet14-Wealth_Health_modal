@@ -54,7 +54,7 @@ export default function Home() {
            */}
           <section className="firstNameSection">
             <Controller
-              name="firstName"
+              name="identity.firstName"
               control={control}
               rules={{
                 required: {
@@ -99,7 +99,7 @@ export default function Home() {
            */}
           <section className="lastNameSection">
             <Controller
-              name="lastName"
+              name="identity.lastName"
               control={control}
               rules={{
                 required: {
@@ -160,7 +160,7 @@ export default function Home() {
             <p>Adress</p>
             <div className="street">
               <Controller
-                name="street"
+                name="adress.street"
                 control={control}
                 rules={{
                   required: {
@@ -201,7 +201,7 @@ export default function Home() {
             </div>
             <div className="city">
               <Controller
-                name="city"
+                name="adress.city"
                 control={control}
                 rules={{
                   required: {

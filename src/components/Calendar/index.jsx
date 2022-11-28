@@ -12,7 +12,7 @@ const Calendar = ({ control }) => {
     <>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Controller
-          name="birthday"
+          name="identity.birthday"
           control={control}
           rules={{
             required: {
