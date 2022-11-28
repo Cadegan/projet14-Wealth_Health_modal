@@ -5,6 +5,7 @@ import State from "../../components/State";
 // import { TextField } from "@material-ui/core";
 import TextField from "@mui/material/TextField";
 // import { Autocomplete } from "@mui/material";
+import IdentityInput from "../../components/Identity";
 
 export default function Home() {
   const {
@@ -49,106 +50,15 @@ export default function Home() {
         <a href="employee-list.html">View Current Employees</a>
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit(setData)}>
-          {/**
-           * First Name Input
-           */}
-          <section className="firstNameSection">
-            <Controller
-              name="identity.firstName"
-              control={control}
-              rules={{
-                required: {
-                  message: "Required",
-                  value: true,
-                },
-                pattern: {
-                  value: /^[_A-z_ -]*((-|\s)*[_A-z_ -])*$/g,
-                  message: "Special characters not allowed",
-                },
-                minLength: {
-                  value: 3,
-                  message: "Please enter at least 3 characters",
-                },
-                maxLength: {
-                  value: 15,
-                  message: "Please enter less than 15 characters",
-                },
-              }}
-              render={({
-                field: { onChange, value },
-                fieldState: { error },
-              }) => (
-                <TextField
-                  required={true}
-                  value={value}
-                  id="firstName"
-                  label="First name"
-                  onChange={onChange}
-                  inputProps={{
-                    pattern: "[A-Za-z_ -]{3,15}",
-                  }}
-                  error={!!error}
-                  helperText={error ? error.message : null}
-                />
-              )}
-            />
-          </section>
+          <IdentityInput
+            control={control}
+            name="firstName"
+            label="First name"
+          />
+          <IdentityInput control={control} name="lastName" label="Last name" />
 
-          {/**
-           * Last Name Input
-           */}
-          <section className="lastNameSection">
-            <Controller
-              name="identity.lastName"
-              control={control}
-              rules={{
-                required: {
-                  message: "Required",
-                  value: true,
-                },
-                pattern: {
-                  value: /^[_A-z_ -]*((-|\s)*[_A-z_ -])*$/g,
-                  message: "Special characters not allowed",
-                },
-                minLength: {
-                  value: 3,
-                  message: "Please enter at least 3 characters",
-                },
-                maxLength: {
-                  value: 15,
-                  message: "Please enter less than 15 characters",
-                },
-              }}
-              render={({
-                field: { onChange, value },
-                fieldState: { error },
-              }) => (
-                <TextField
-                  required={true}
-                  value={value}
-                  id="lastName"
-                  label="Last name"
-                  onChange={onChange}
-                  inputProps={{
-                    pattern: "[A-Za-z_ -]{3,15}",
-                  }}
-                  error={!!error}
-                  helperText={error ? error.message : null}
-                />
-              )}
-            />
-          </section>
+          <Calendar control={control} />
 
-          {/**
-           * Birth day calendar Input
-           */}
-          <section className="birthDaySection">
-            <Calendar control={control}></Calendar>
-          </section>
-
-          {/**
-           * Start date calendar Input
-           */}
           <section className="startDateSection">
             <p>Start Date</p>
           </section>
@@ -300,6 +210,7 @@ export default function Home() {
               )}
             />
           </div>
+
           <button className="button" type="submit">
             Save
           </button>

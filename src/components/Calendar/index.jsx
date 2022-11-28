@@ -9,7 +9,7 @@ import {
 const Calendar = ({ control }) => {
   // const nodeRef = React.useRef(null);
   return (
-    <>
+    <section className="birthDaySection">
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Controller
           name="identity.birthday"
@@ -63,7 +63,7 @@ const Calendar = ({ control }) => {
           />
         )}
       /> */}
-    </>
+    </section>
   );
 };
 export default Calendar;
