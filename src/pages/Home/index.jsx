@@ -140,14 +140,14 @@ export default function Home() {
           </section>
 
           {/**
-           * Birth day calendar
+           * Birth day calendar Input
            */}
           <section className="birthDaySection">
             <Calendar control={control}></Calendar>
           </section>
 
           {/**
-           * Start date calendar
+           * Start date calendar Input
            */}
           <section className="startDateSection">
             <p>Start Date</p>
@@ -158,6 +158,9 @@ export default function Home() {
            */}
           <section className="adressSection">
             <p>Adress</p>
+            {/**
+             * Street Input
+             */}
             <div className="street">
               <Controller
                 name="adress.street"
@@ -168,7 +171,7 @@ export default function Home() {
                     value: true,
                   },
                   pattern: {
-                    value: /^[_A-z0-9_ -]*((-|\s)*[_A-z_ -])*$/g,
+                    value: /^[_A-z0-9_ -]*((-|\s)*[_A-z0-9_ -])*$/g,
                     message: "Special characters not allowed",
                   },
                   minLength: {
@@ -176,8 +179,8 @@ export default function Home() {
                     message: "Please enter at least 3 characters",
                   },
                   maxLength: {
-                    value: 50,
-                    message: "Please enter less than 50 characters",
+                    value: 30,
+                    message: "Please enter less than 30 characters",
                   },
                 }}
                 render={({
@@ -191,7 +194,7 @@ export default function Home() {
                     label="Street"
                     onChange={onChange}
                     inputProps={{
-                      pattern: "[A-Za-z0-9_ -]{3,15}",
+                      pattern: "[A-Za-z0-9_ -]{3,30}",
                     }}
                     error={!!error}
                     helperText={error ? error.message : null}
@@ -199,6 +202,10 @@ export default function Home() {
                 )}
               />
             </div>
+
+            {/**
+             * City Input
+             */}
             <div className="city">
               <Controller
                 name="adress.city"
@@ -209,7 +216,7 @@ export default function Home() {
                     value: true,
                   },
                   pattern: {
-                    value: /^[_A-z0-9_ -]*((-|\s)*[_A-z_ -])*$/g,
+                    value: /^[_A-z_ -]*((-|\s)*[_A-z_ -])*$/g,
                     message: "Special characters not allowed",
                   },
                   minLength: {
@@ -217,8 +224,8 @@ export default function Home() {
                     message: "Please enter at least 3 characters",
                   },
                   maxLength: {
-                    value: 50,
-                    message: "Please enter less than 50 characters",
+                    value: 30,
+                    message: "Please enter less than 30 characters",
                   },
                 }}
                 render={({
@@ -232,7 +239,7 @@ export default function Home() {
                     label="City"
                     onChange={onChange}
                     inputProps={{
-                      pattern: "[A-Za-z0-9_ -]{3,15}",
+                      pattern: "[A-Za-z_ -]{3,30}",
                     }}
                     error={!!error}
                     helperText={error ? error.message : null}
@@ -240,58 +247,59 @@ export default function Home() {
                 )}
               />
             </div>
+
+            {/**
+             * State Input
+             */}
             <div className="state">
               <State control={control}></State>
             </div>
           </section>
 
-          {/* 
-          <section className="addressSection">
-            <div className="street">
-              <Controller
-                rules={{ required: true, minLength: 1 }}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    required
-                    id="streetAddress"
-                    name="streetAddress"
-                    label="Street"
-                    autoComplete="street-address"
-                  />
-                )}
-                name="streetAddress"
-                control={control}
-              />
-              {errors.streetAddress && (
-                <span className="text-error">required</span>
+          {/**
+           * Zip Code Input
+           */}
+          <div className="zipCode">
+            <Controller
+              name="adress.zipCode"
+              control={control}
+              rules={{
+                required: {
+                  message: "Required",
+                  value: true,
+                },
+                pattern: {
+                  value: /^[_0-9_ -]*((-|\s)*[_0-9_ -])*$/g,
+                  message: "Not allowed",
+                },
+                minLength: {
+                  value: 4,
+                  message: "Please enter at least 4 characters",
+                },
+                maxLength: {
+                  value: 9,
+                  message: "Please enter less than 9 characters",
+                },
+              }}
+              render={({
+                field: { onChange, value },
+                fieldState: { error },
+              }) => (
+                <TextField
+                  required={true}
+                  value={value}
+                  id="zipCode"
+                  label="Zip Code"
+                  onChange={onChange}
+                  inputProps={{
+                    pattern: "[0-9_ -]{4,9}",
+                  }}
+                  error={!!error}
+                  helperText={error ? error.message : null}
+                />
               )}
-            </div>
-          </section>
-
-          <section className="citySection">
-            <div className="city">
-              <Controller
-                rules={{ required: true, minLength: 1 }}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    required
-                    id="cityAddress"
-                    name="cityAddress"
-                    label="City"
-                    autoComplete="city-address"
-                  />
-                )}
-                name="cityAddress"
-                control={control}
-              />
-              {errors.cityAddress && (
-                <span className="text-error">required</span>
-              )}
-            </div>
-          </section> */}
-
+            />
+          </div>
           <button className="button" type="submit">
             Save
           </button>
