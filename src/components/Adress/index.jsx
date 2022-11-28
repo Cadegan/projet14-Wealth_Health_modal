@@ -12,7 +12,7 @@ const Adress = ({
   label,
 }) => {
   return (
-    <div className="street">
+    <div className={`${name}`}>
       <Controller
         name={`adress.${name}`}
         control={control}

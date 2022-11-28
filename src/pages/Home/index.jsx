@@ -86,9 +86,7 @@ export default function Home() {
               label="City"
             />
 
-            <div className="state">
-              <State control={control}></State>
-            </div>
+            <State control={control}></State>
           </section>
 
           <Adress

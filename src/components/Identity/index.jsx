@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 
 const IdentityInput = ({ control, name, label }) => {
   return (
-    <section className="firstNameSection">
+    <section className={`${name}Section`}>
       <Controller
         name={`identity.${name}`}
         control={control}
