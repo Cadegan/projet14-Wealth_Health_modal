@@ -1,10 +1,5 @@
 import { Controller } from "react-hook-form";
-// import { useState, useEffect } from "react";
-// import Calendar from "../../components/Calendar";
-// import State from "../../components/State";
-// import { TextField } from "@material-ui/core";
 import TextField from "@mui/material/TextField";
-// import { Autocomplete } from "@mui/material";
 
 const IdentityInput = ({ control, name, label }) => {
   return (

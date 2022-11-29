@@ -7,7 +7,6 @@ import {
 } from "@material-ui/pickers";
 
 const Calendar = ({ control }) => {
-  // const nodeRef = React.useRef(null);
   return (
     <section className="birthDaySection">
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -40,29 +39,6 @@ const Calendar = ({ control }) => {
           )}
         ></Controller>
       </MuiPickersUtilsProvider>
-
-      {/* <Controller
-        // nodeRef={nodeRef}
-        name="DateOfBirth"
-        control={control}
-        render={({ field: { ref, ...rest } }) => (
-          <KeyboardDatePicker
-            required
-            label="Date of Birth"
-            autoComplete="date-of-birth"
-            variant="standard"
-            margin="normal"
-            id="date-picker-dialog"
-            format="MM/dd/yyyy"
-            KeyboardButtonProps={{
-              "aria-label": "change date",
-            }}
-            // required="true"
-            // rules={{ required: true }}
-            {...rest}
-          />
-        )}
-      /> */}
     </section>
   );
 };

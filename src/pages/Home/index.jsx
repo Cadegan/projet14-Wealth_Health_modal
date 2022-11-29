@@ -7,6 +7,7 @@ import State from "../../components/State";
 // import { Autocomplete } from "@mui/material";
 import IdentityInput from "../../components/Identity";
 import Adress from "../../components/Adress";
+import Departments from "../../components/Departments";
 
 export default function Home() {
   const {
@@ -58,14 +59,11 @@ export default function Home() {
           />
           <IdentityInput control={control} name="lastName" label="Last name" />
           <Calendar control={control} />
-
           <section className="startDateSection">
             <p>Start Date</p>
           </section>
-
           <section className="adressSection">
             <p>Adress</p>
-
             <Adress
               control={control}
               controllerPattern={/^[_A-z0-9_ -]*((-|\s)*[_A-z0-9_ -])*$/g}
@@ -75,7 +73,6 @@ export default function Home() {
               name="street"
               label="Street"
             />
-
             <Adress
               control={control}
               controllerPattern={/^[_A-z_ -]*((-|\s)*[_A-z_ -])*$/g}
@@ -85,10 +82,8 @@ export default function Home() {
               name="city"
               label="City"
             />
-
             <State control={control}></State>
           </section>
-
           <Adress
             control={control}
             controllerPattern={/^[_0-9_ -]*((-|\s)*[_0-9_ -])*$/g}
@@ -98,7 +93,7 @@ export default function Home() {
             name="zipCode"
             label="Zip Code"
           />
-
+          <Departments control={control} />
           <button className="button" type="submit">
             Save
           </button>
