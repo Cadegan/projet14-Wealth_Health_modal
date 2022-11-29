@@ -18,14 +18,12 @@ const State = ({ control }) => {
         }}
         render={({ field, fieldState: { error } }) => (
           <Autocomplete
-            //   value={value}
             options={getStatesCollection}
             getOptionLabel={(option) => option.name}
             renderOption={(option) => <span>{option.name}</span>}
             renderInput={(params) => (
               <TextField
                 {...params}
-                //   onChange={onChange}
                 label="State"
                 variant="outlined"
                 required={true}

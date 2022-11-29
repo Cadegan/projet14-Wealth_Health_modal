@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Controller } from "react-hook-form";
 import DateFnsUtils from "@date-io/date-fns";
 import {
@@ -6,12 +6,17 @@ import {
   MuiPickersUtilsProvider,
 } from "@material-ui/pickers";
 
-const Calendar = ({ control }) => {
+const Calendar = ({ control, name, label }) => {
+  const [clearedDate, handleClearedDateChange] = useState(null);
+
   return (
-    <section className="birthDaySection">
+    <div
+      className={`${name}`}
+      // className="birthDaySection"
+    >
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Controller
-          name="identity.birthday"
+          name={`identity.${name}`}
           control={control}
           rules={{
             required: {
@@ -21,13 +26,15 @@ const Calendar = ({ control }) => {
           }}
           render={({ field: { onChange, value }, fieldState: { error } }) => (
             <KeyboardDatePicker
+              clearable
               required={true}
               value={value}
-              label="Date of Birth"
-              autoComplete="date-of-birth"
+              // label="Date of Birth"
+              label={label}
+              autoComplete={name}
               variant="standard"
               margin="normal"
-              id="date-picker-dialog"
+              id={name}
               format="MM/dd/yyyy"
               onChange={onChange}
               KeyboardButtonProps={{
@@ -36,10 +43,29 @@ const Calendar = ({ control }) => {
               // error={!!error}
               // helperText={error ? error.message : null}
             />
+            // // v2
+            // <KeyboardDatePicker
+            //   clearable
+            //   required={true}
+            //   value={clearedDate}
+            //   // label="Date of Birth"
+            //   label={label}
+            //   autoComplete={name}
+            //   variant="standard"
+            //   margin="normal"
+            //   id={name}
+            //   format="MM/dd/yyyy"
+            //   onChange={handleClearedDateChange}
+            //   KeyboardButtonProps={{
+            //     "aria-label": "change date",
+            //   }}
+            //   // error={!!error}
+            //   // helperText={error ? error.message : null}
+            // />;
           )}
         ></Controller>
       </MuiPickersUtilsProvider>
-    </section>
+    </div>
   );
 };
 export default Calendar;

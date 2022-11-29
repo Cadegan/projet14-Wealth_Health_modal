@@ -58,10 +58,12 @@ export default function Home() {
             label="First name"
           />
           <IdentityInput control={control} name="lastName" label="Last name" />
-          <Calendar control={control} />
-          <section className="startDateSection">
-            <p>Start Date</p>
+
+          <section>
+            <Calendar control={control} name="birthDay" label="Date of Birth" />
+            <Calendar control={control} name="startDate" label="Start Date" />
           </section>
+
           <section className="adressSection">
             <p>Adress</p>
             <Adress
