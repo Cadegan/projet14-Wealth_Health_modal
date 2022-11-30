@@ -17,12 +17,12 @@ const IdentityInput = ({ control, name, label }) => {
             message: "Special characters not allowed",
           },
           minLength: {
-            value: 3,
-            message: "Please enter at least 3 characters",
+            value: 2,
+            message: "Please enter at least 2 characters",
           },
           maxLength: {
-            value: 15,
-            message: "Please enter less than 15 characters",
+            value: 50,
+            message: "Please enter less than 50 characters",
           },
         }}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
@@ -33,7 +33,7 @@ const IdentityInput = ({ control, name, label }) => {
             label={label}
             onChange={onChange}
             inputProps={{
-              pattern: "[A-Za-z_ -]{3,15}",
+              pattern: "[A-Za-z_ -]{2,50}",
             }}
             error={!!error}
             helperText={error ? error.message : null}

@@ -41,6 +41,7 @@ export default function Home() {
     const employees = JSON.parse(localStorage.getItem("employees")) || [];
     employees.push(data);
     localStorage.setItem("employees", JSON.stringify(employees));
+    console.log("ok");
   });
 
   return (
