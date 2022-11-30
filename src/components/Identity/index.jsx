@@ -13,7 +13,7 @@ const IdentityInput = ({ control, name, label }) => {
             value: true,
           },
           pattern: {
-            value: /^[_A-z_ -]*((-|\s)*[_A-z_ -])*$/g,
+            value: /^(?!.* {2})[A-zÀ-ž_ -']*((-|\s)*[A-zÀ-ž_ -'])*$/g,
             message: "Special characters not allowed",
           },
           minLength: {
@@ -33,7 +33,7 @@ const IdentityInput = ({ control, name, label }) => {
             label={label}
             onChange={onChange}
             inputProps={{
-              pattern: "[A-Za-z_ -]{2,50}",
+              pattern: "(?!.* {2})[A-zÀ-ž_ -']{2,50}",
             }}
             error={!!error}
             helperText={error ? error.message : null}

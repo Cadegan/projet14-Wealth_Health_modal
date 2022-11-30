@@ -29,7 +29,7 @@ export default function Home() {
 
   // const handleValidation = (e) => {
   //   setValue(e.target.value);
-  //   const reg = new RegExp("[A-Za-z]");
+  //   const reg = new RegExp("[A-zÀ-ž]");
   //   setValid(reg.test(e.target.value));
   //   console.log("isValid?", reg.test(e.target.value));
   // };
@@ -69,19 +69,23 @@ export default function Home() {
             <p>Adress</p>
             <Adress
               control={control}
-              controllerPattern={/^[_A-z0-9_ -]*((-|\s)*[_A-z0-9_ -])*$/g}
-              inputPropsPattern="[A-Za-z0-9_ -]{3,30}"
-              minLength="3"
-              maxLength="30"
+              controllerPattern={
+                /^(?!.* {2})[A-zÀ-ž0-9_ -']*((-|\s)*[A-zÀ-ž0-9_ -'])*$/g
+              }
+              inputPropsPattern="(?!.* {2})[A-zÀ-ž0-9_ -']{2,50}"
+              minLength="2"
+              maxLength="50"
               name="street"
               label="Street"
             />
             <Adress
               control={control}
-              controllerPattern={/^[_A-z_ -]*((-|\s)*[_A-z_ -])*$/g}
-              inputPropsPattern="[A-Za-z_ -]{3,30}"
-              minLength="3"
-              maxLength="30"
+              controllerPattern={
+                /^(?!.* {2})[A-zÀ-ž_ -']*((-|\s)*[A-zÀ-ž_ -'])*$/g
+              }
+              inputPropsPattern="(?!.* {2})[A-zÀ-ž_ -']{2,50}"
+              minLength="2"
+              maxLength="50"
               name="city"
               label="City"
             />
@@ -89,8 +93,8 @@ export default function Home() {
           </section>
           <Adress
             control={control}
-            controllerPattern={/^[_0-9_ -]*((-|\s)*[_0-9_ -])*$/g}
-            inputPropsPattern="[0-9_ -]{4,9}"
+            controllerPattern={/^(?!.* {2})[_0-9_ -]*((-|\s)*[_0-9_ -])*$/g}
+            inputPropsPattern="(?!.* {2})[0-9_ -]{4,9}"
             minLength="4"
             maxLength="9"
             name="zipCode"
