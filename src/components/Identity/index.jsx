@@ -9,7 +9,7 @@ const IdentityInput = ({ control, name, label }) => {
         control={control}
         rules={{
           required: {
-            message: "Required",
+            message: `${label} required`,
             value: true,
           },
           pattern: {

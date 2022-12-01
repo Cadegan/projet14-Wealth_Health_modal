@@ -4,7 +4,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { Controller } from "react-hook-form";
 import { getStatesCollection } from "../../services/states";
 
-const State = ({ control }) => {
+const State = ({ control, label }) => {
   return (
     <div className="state">
       <Controller
@@ -12,7 +12,7 @@ const State = ({ control }) => {
         control={control}
         rules={{
           required: {
-            message: "Required",
+            message: `${label} required`,
             value: true,
           },
         }}
@@ -24,7 +24,7 @@ const State = ({ control }) => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                label="State"
+                label={label}
                 variant="outlined"
                 required={true}
                 error={!!error}

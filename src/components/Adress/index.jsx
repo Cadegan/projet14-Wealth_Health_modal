@@ -18,7 +18,7 @@ const Adress = ({
         control={control}
         rules={{
           required: {
-            message: "Required",
+            message: `${label} required`,
             value: true,
           },
           pattern: {

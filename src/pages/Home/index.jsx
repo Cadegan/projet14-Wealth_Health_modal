@@ -89,7 +89,7 @@ export default function Home() {
               name="city"
               label="City"
             />
-            <State control={control}></State>
+            <State label="State" control={control}></State>
           </section>
           <Adress
             control={control}
