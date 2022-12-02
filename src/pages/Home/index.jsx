@@ -6,7 +6,7 @@ import State from "../../components/State";
 // import TextField from "@mui/material/TextField";
 // import { Autocomplete } from "@mui/material";
 import IdentityInput from "../../components/Identity";
-import Adress from "../../components/Adress";
+import Address from "../../components/Address";
 import Departments from "../../components/Departments";
 import BirthDayCalendar from "../../components/Calendar/birthday";
 
@@ -128,9 +128,9 @@ export default function Home() {
             </LocalizationProvider> */}
           </section>
 
-          <section className="adressSection">
-            <p>Adress</p>
-            <Adress
+          <section className="AddressSection">
+            <p>Address</p>
+            <Address
               control={control}
               controllerPattern={
                 /^(?!.* {2})[A-zÀ-ž0-9_ -']*((-|\s)*[A-zÀ-ž0-9_ -'])*$/g
@@ -141,7 +141,7 @@ export default function Home() {
               name="street"
               label="Street"
             />
-            <Adress
+            <Address
               control={control}
               controllerPattern={
                 /^(?!.* {2})[A-zÀ-ž_ -']*((-|\s)*[A-zÀ-ž_ -'])*$/g
@@ -154,7 +154,7 @@ export default function Home() {
             />
             <State label="State" control={control}></State>
           </section>
-          <Adress
+          <Address
             control={control}
             controllerPattern={/^(?!.* {2})[_0-9_ -]*((-|\s)*[_0-9_ -])*$/g}
             inputPropsPattern="(?!.* {2})[0-9_ -]{4,9}"

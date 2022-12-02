@@ -8,7 +8,7 @@ const State = ({ control, label }) => {
   return (
     <div className="state">
       <Controller
-        name="adress.state"
+        name="address.state"
         control={control}
         rules={{
           required: {

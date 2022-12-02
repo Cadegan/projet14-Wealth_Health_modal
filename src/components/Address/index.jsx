@@ -2,7 +2,7 @@ import { Controller } from "react-hook-form";
 
 import TextField from "@mui/material/TextField";
 
-const Adress = ({
+const Address = ({
   control,
   controllerPattern,
   inputPropsPattern,
@@ -14,7 +14,7 @@ const Adress = ({
   return (
     <div className={`${name}`}>
       <Controller
-        name={`adress.${name}`}
+        name={`address.${name}`}
         control={control}
         rules={{
           required: {
@@ -53,4 +53,4 @@ const Adress = ({
   );
 };
 
-export default Adress;
+export default Address;
