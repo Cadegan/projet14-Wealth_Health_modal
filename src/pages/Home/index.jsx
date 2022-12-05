@@ -8,7 +8,7 @@ import State from "../../components/State";
 import IdentityInput from "../../components/Identity";
 import Address from "../../components/Address";
 import Departments from "../../components/Departments";
-import BirthDayCalendar from "../../components/Calendar/birthday";
+// import BirthDayCalendar from "../../components/Calendar/birthday";
 
 // import { yupResolver } from "@hookform/resolvers/yup";
 // import * as yup from "yup";

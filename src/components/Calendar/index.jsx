@@ -24,7 +24,8 @@ const Calendar = ({ control, name, label }) => {
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker
-              clearable
+              // clearable
+              disableFuture
               required={true}
               value={value}
               label={label}
