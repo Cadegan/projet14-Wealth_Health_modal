@@ -39,30 +39,26 @@ export default function Home() {
     mode: "onChange",
     // resolver: yupResolver(schema),
   });
+  const employees = JSON.parse(localStorage.getItem("employees")) || [];
+  const onSubmit = (data) => {
+    localStorage.setItem("employees", JSON.stringify(employees));
+    employees.push(data);
+    // alert(JSON.stringify(data, null, 2));
+  };
 
   // console.log("errors", errors);
 
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
 
-  // const [value, setValue] = useState("");
-  // const [valid, setValid] = useState(true);
-
-  // const handleValidation = (e) => {
-  //   setValue(e.target.value);
-  //   const reg = new RegExp("[A-zÀ-ž]");
-  //   setValid(reg.test(e.target.value));
-  //   console.log("isValid?", reg.test(e.target.value));
-  // };
-
-  useEffect(() => {
-    /* This is a ternary operator. It is saying if there is something in localStorage, then parse it
-    and set it to employees. If there is nothing in localStorage, then set employees to an empty
-    array. */
-    const employees = JSON.parse(localStorage.getItem("employees")) || [];
-    employees.push(data);
-    localStorage.setItem("employees", JSON.stringify(employees));
-    console.log("ok");
-  });
+  // useEffect(() => {
+  //   /* This is a ternary operator. It is saying if there is something in localStorage, then parse it
+  //   and set it to employees. If there is nothing in localStorage, then set employees to an empty
+  //   array. */
+  //   const employees = JSON.parse(localStorage.getItem("employees")) || [];
+  //   employees.push(data);
+  //   localStorage.setItem("employees", JSON.stringify(employees));
+  //   console.log("ok");
+  // });
 
   return (
     <main className="main">
@@ -72,7 +68,7 @@ export default function Home() {
       <div className="container">
         <a href="employee-list.html">View Current Employees</a>
         <h2>Create Employee</h2>
-        <form onSubmit={handleSubmit(setData)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <IdentityInput
             control={control}
             name="firstName"
