@@ -8,6 +8,7 @@ import State from "../../components/State";
 import IdentityInput from "../../components/Identity";
 import Address from "../../components/Address";
 import Departments from "../../components/Departments";
+import Modal from "../../components/Modal";
 // import BirthDayCalendar from "../../components/Calendar/birthday";
 
 // import { yupResolver } from "@hookform/resolvers/yup";
@@ -28,6 +29,8 @@ export default function Home() {
   //     })
   //     .required("Please enter your age"),
   // });
+
+  const [openModal, setOpenModal] = useState(false);
 
   const {
     // register,
@@ -164,6 +167,10 @@ export default function Home() {
             Save
           </button>
         </form>
+        <div className="modalWrapper">
+          <button onClick={() => setOpenModal(true)}>Modal</button>
+          <Modal open={openModal} onClose={() => setOpenModal(false)}></Modal>
+        </div>
       </div>
     </main>
   );
