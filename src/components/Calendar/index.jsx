@@ -5,7 +5,7 @@ import {
   MuiPickersUtilsProvider,
 } from "@material-ui/pickers";
 
-const Calendar = ({ control, name, label }) => {
+const Calendar = ({ control, name, label, disableFuture }) => {
   return (
     <div
       className={`${name}`}
@@ -25,7 +25,7 @@ const Calendar = ({ control, name, label }) => {
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker
               // clearable
-              disableFuture
+              disableFuture={disableFuture}
               required={true}
               value={value}
               label={label}

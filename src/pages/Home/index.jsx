@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import {
+  useState,
+  // useEffect
+} from "react";
 import Calendar from "../../components/Calendar";
 import State from "../../components/State";
 // import { TextField } from "@material-ui/core";
@@ -46,9 +49,11 @@ export default function Home() {
   const onSubmit = (data) => {
     localStorage.setItem("employees", JSON.stringify(employees));
     employees.push(data);
+    setOpenModal(true);
     // alert(JSON.stringify(data, null, 2));
   };
 
+  console.log("Submit result", employees);
   // console.log("errors", errors);
 
   // const [data, setData] = useState(null);
@@ -81,7 +86,12 @@ export default function Home() {
 
           <section>
             {/* V1 */}
-            <Calendar control={control} name="birthDay" label="Date of Birth" />
+            <Calendar
+              control={control}
+              name="birthDay"
+              label="Date of Birth"
+              disableFuture
+            />
             {/* V2-bis */}
             {/* <BirthDayCalendar></BirthDayCalendar> */}
             <Calendar control={control} name="startDate" label="Start Date" />
@@ -167,10 +177,8 @@ export default function Home() {
             Save
           </button>
         </form>
-        <div className="modalWrapper">
-          <button onClick={() => setOpenModal(true)}>Modal</button>
-          <Modal open={openModal} onClose={() => setOpenModal(false)}></Modal>
-        </div>
+        {/* <button onClick={() => setOpenModal(true)}>Modal</button> */}
+        <Modal open={openModal} closeModal={() => setOpenModal(false)}></Modal>
       </div>
     </main>
   );
