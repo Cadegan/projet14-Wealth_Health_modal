@@ -19,6 +19,7 @@ const Department = ({ control }) => {
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <TextField
             select
+            fullWidth
             required={true}
             defaultValue=""
             value={value}

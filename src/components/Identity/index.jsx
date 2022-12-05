@@ -27,6 +27,7 @@ const IdentityInput = ({ control, name, label }) => {
         }}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <TextField
+            fullWidth
             required={true}
             value={value}
             id={name}

@@ -12,6 +12,7 @@ import IdentityInput from "../../components/Identity";
 import Address from "../../components/Address";
 import Departments from "../../components/Departments";
 import Modal from "../../components/Modal";
+import { Grid } from "@mui/material";
 // import BirthDayCalendar from "../../components/Calendar/birthday";
 
 // import { yupResolver } from "@hookform/resolvers/yup";
@@ -47,8 +48,8 @@ export default function Home() {
   });
   const employees = JSON.parse(localStorage.getItem("employees")) || [];
   const onSubmit = (data) => {
-    localStorage.setItem("employees", JSON.stringify(employees));
     employees.push(data);
+    localStorage.setItem("employees", JSON.stringify(employees));
     setOpenModal(true);
     // alert(JSON.stringify(data, null, 2));
   };
@@ -77,27 +78,33 @@ export default function Home() {
         <a href="employee-list.html">View Current Employees</a>
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <IdentityInput
-            control={control}
-            name="firstName"
-            label="First name"
-          />
-          <IdentityInput control={control} name="lastName" label="Last name" />
-
-          <section>
-            {/* V1 */}
-            <Calendar
-              control={control}
-              name="birthDay"
-              label="Date of Birth"
-              disableFuture
-            />
-            {/* V2-bis */}
-            {/* <BirthDayCalendar></BirthDayCalendar> */}
-            <Calendar control={control} name="startDate" label="Start Date" />
-
-            {/*V2: Contrôle de l'age partiellement buggé */}
-            {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <Grid container spacing={2} justifyContent="center">
+            <Grid item xs={4}>
+              <IdentityInput
+                control={control}
+                name="firstName"
+                label="First name"
+              />
+              <IdentityInput
+                control={control}
+                name="lastName"
+                label="Last name"
+              />
+            </Grid>
+            <Grid item xs={4}>
+              {/* <section> */}
+              {/* V1 */}
+              <Calendar
+                control={control}
+                name="birthDay"
+                label="Date of Birth"
+                disableFuture
+              />
+              {/* V2-bis */}
+              {/* <BirthDayCalendar></BirthDayCalendar> */}
+              <Calendar control={control} name="startDate" label="Start Date" />
+              {/*V2: Contrôle de l'age partiellement buggé */}
+              {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
               <Controller
                 name="dateOfBirth"
                 required={true}
@@ -135,49 +142,52 @@ export default function Home() {
                 )}
               />
             </LocalizationProvider> */}
-          </section>
-
-          <section className="AddressSection">
-            <p>Address</p>
-            <Address
-              control={control}
-              controllerPattern={
-                /^(?!.* {2})[A-zÀ-ž0-9_ -']*((-|\s)*[A-zÀ-ž0-9_ -'])*$/g
-              }
-              inputPropsPattern="(?!.* {2})[A-zÀ-ž0-9_ -']{2,50}"
-              minLength="2"
-              maxLength="50"
-              name="street"
-              label="Street"
-            />
-            <Address
-              control={control}
-              controllerPattern={
-                /^(?!.* {2})[A-zÀ-ž_ -']*((-|\s)*[A-zÀ-ž_ -'])*$/g
-              }
-              inputPropsPattern="(?!.* {2})[A-zÀ-ž_ -']{2,50}"
-              minLength="2"
-              maxLength="50"
-              name="city"
-              label="City"
-            />
-            <State label="State" control={control}></State>
-          </section>
-          <Address
-            control={control}
-            controllerPattern={/^(?!.* {2})[_0-9_ -]*((-|\s)*[_0-9_ -])*$/g}
-            inputPropsPattern="(?!.* {2})[0-9_ -]{4,9}"
-            minLength="4"
-            maxLength="9"
-            name="zipCode"
-            label="Zip Code"
-          />
-          <Departments control={control} />
-          <button className="button" type="submit">
-            Save
-          </button>
+              {/* </section> */}
+            </Grid>
+            <Grid item xs={6}>
+              {/* <section className="AddressSection"> */}
+              <p>Address</p>
+              <Address
+                control={control}
+                controllerPattern={
+                  /^(?!.* {2})[A-zÀ-ž0-9_ -']*((-|\s)*[A-zÀ-ž0-9_ -'])*$/g
+                }
+                inputPropsPattern="(?!.* {2})[A-zÀ-ž0-9_ -']{2,50}"
+                minLength="2"
+                maxLength="50"
+                name="street"
+                label="Street"
+              />
+              <Address
+                control={control}
+                controllerPattern={
+                  /^(?!.* {2})[A-zÀ-ž_ -']*((-|\s)*[A-zÀ-ž_ -'])*$/g
+                }
+                inputPropsPattern="(?!.* {2})[A-zÀ-ž_ -']{2,50}"
+                minLength="2"
+                maxLength="50"
+                name="city"
+                label="City"
+              />
+              <State label="State" control={control}></State>
+              {/* </section> */}
+              <Address
+                control={control}
+                controllerPattern={/^(?!.* {2})[_0-9_ -]*((-|\s)*[_0-9_ -])*$/g}
+                inputPropsPattern="(?!.* {2})[0-9_ -]{4,9}"
+                minLength="4"
+                maxLength="9"
+                name="zipCode"
+                label="Zip Code"
+              />
+              <Departments control={control} />
+              <button className="button" type="submit">
+                Save
+              </button>
+              {/* <button onClick={() => setOpenModal(true)}>Modal</button> */}
+            </Grid>
+          </Grid>
         </form>
-        {/* <button onClick={() => setOpenModal(true)}>Modal</button> */}
         <Modal open={openModal} closeModal={() => setOpenModal(false)}></Modal>
       </div>
     </main>

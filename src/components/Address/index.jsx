@@ -36,6 +36,7 @@ const Address = ({
         }}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <TextField
+            fullWidth
             required={true}
             value={value}
             id={name}

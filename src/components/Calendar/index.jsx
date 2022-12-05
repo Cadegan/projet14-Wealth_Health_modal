@@ -30,6 +30,7 @@ const Calendar = ({ control, name, label, disableFuture }) => {
               value={value}
               label={label}
               autoComplete={name}
+              fullWidth
               // variant="standard"
               inputVariant="outlined"
               margin="normal"
