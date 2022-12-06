@@ -28,7 +28,7 @@ const State = ({ control, label }) => {
                 variant="outlined"
                 required={true}
                 error={!!error}
-                helperText={error ? error.message : null}
+                helperText={error ? error.message : " "}
               ></TextField>
             )}
             onChange={(_, data) => field.onChange(data)}

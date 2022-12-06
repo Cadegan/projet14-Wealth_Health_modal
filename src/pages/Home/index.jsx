@@ -13,6 +13,8 @@ import Address from "../../components/Address";
 import Departments from "../../components/Departments";
 import Modal from "../../components/Modal";
 import { Grid } from "@mui/material";
+import { makeStyles } from "@material-ui/core";
+
 // import BirthDayCalendar from "../../components/Calendar/birthday";
 
 // import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,6 +24,13 @@ import { Grid } from "@mui/material";
 // import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 // import { LocalizationProvider } from "@mui/x-date-pickers";
 // import { DatePicker } from "@mui/x-date-pickers";
+
+const useStyles = makeStyles((theme) => ({
+  pageContent: {
+    margin: theme.spacing(5),
+    padding: theme.spacing(3),
+  },
+}));
 
 export default function Home() {
   // const schema = yup.object().shape({
@@ -35,6 +44,8 @@ export default function Home() {
   // });
 
   const [openModal, setOpenModal] = useState(false);
+
+  const classes = useStyles();
 
   const {
     // register,
@@ -77,7 +88,7 @@ export default function Home() {
       <div className="container">
         <a href="employee-list.html">View Current Employees</a>
         <h2>Create Employee</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className={classes.pageContent} onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={4}>
               <IdentityInput

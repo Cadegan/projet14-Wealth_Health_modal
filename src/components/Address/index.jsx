@@ -46,7 +46,7 @@ const Address = ({
               pattern: inputPropsPattern,
             }}
             error={!!error}
-            helperText={error ? error.message : null}
+            helperText={error ? error.message : " "}
           />
         )}
       />

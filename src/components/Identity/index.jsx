@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 
 const IdentityInput = ({ control, name, label }) => {
   return (
-    <section className={`${name}Section`}>
+    <div className={`${name}Section`}>
       <Controller
         name={`identity.${name}`}
         control={control}
@@ -37,11 +37,11 @@ const IdentityInput = ({ control, name, label }) => {
               pattern: "(?!.* {2})[A-zÀ-ž_ -']{2,50}",
             }}
             error={!!error}
-            helperText={error ? error.message : null}
+            helperText={error ? error.message : " "}
           />
         )}
       />
-    </section>
+    </div>
   );
 };
 

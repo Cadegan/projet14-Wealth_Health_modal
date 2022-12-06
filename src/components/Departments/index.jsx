@@ -27,7 +27,7 @@ const Department = ({ control }) => {
             label="Department"
             onChange={onChange}
             error={!!error}
-            helperText={error ? error.message : null}
+            helperText={error ? error.message : " "}
           >
             {departmentCollection.map((option) => (
               <MenuItem key={option.value} value={option.value}>
