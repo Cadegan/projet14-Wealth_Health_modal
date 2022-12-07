@@ -1,5 +1,9 @@
 export const departmentCollection = [
   {
+    value: "select",
+    label: "Select a department",
+  },
+  {
     value: "sales",
     label: "Sales",
   },

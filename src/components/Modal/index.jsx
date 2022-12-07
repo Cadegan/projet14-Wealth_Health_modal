@@ -8,9 +8,9 @@ const Modal = ({ open, closeModal }) => {
           e.stopPropagation();
         }}
       >
-        <p className="modalCloseBnt" onClick={closeModal}>
+        <div className="modalCloseBnt" onClick={closeModal}>
           X
-        </p>
+        </div>
         <div className="modalContent">
           <span>Employee Created!</span>
         </div>

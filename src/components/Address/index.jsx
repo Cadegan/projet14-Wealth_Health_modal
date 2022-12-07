@@ -38,7 +38,7 @@ const Address = ({
           <TextField
             fullWidth
             required={true}
-            value={value}
+            value={value || ""}
             id={name}
             label={label}
             onChange={onChange}

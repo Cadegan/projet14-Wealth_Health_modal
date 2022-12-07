@@ -21,8 +21,8 @@ const Department = ({ control }) => {
             select
             fullWidth
             required={true}
-            defaultValue=""
-            value={value}
+            // defaultValue="select"
+            value={value || "select"}
             id="department"
             label="Department"
             onChange={onChange}
