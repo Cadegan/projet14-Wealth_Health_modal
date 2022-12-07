@@ -7,6 +7,7 @@ const IdentityInput = ({ control, name, label }) => {
       <Controller
         name={`identity.${name}`}
         control={control}
+        defaultValue={""}
         rules={{
           required: {
             message: `${label} required`,
@@ -29,7 +30,7 @@ const IdentityInput = ({ control, name, label }) => {
           <TextField
             fullWidth
             required={true}
-            value={value || ""}
+            value={value}
             id={name}
             label={label}
             onChange={onChange}

@@ -10,6 +10,7 @@ const Department = ({ control }) => {
       <Controller
         name="department"
         control={control}
+        defaultValue={""}
         rules={{
           required: {
             message: "Required",
@@ -21,8 +22,8 @@ const Department = ({ control }) => {
             select
             fullWidth
             required={true}
-            // defaultValue="select"
-            value={value || "select"}
+            // value={value || "select"}
+            value={value}
             id="department"
             label="Department"
             onChange={onChange}

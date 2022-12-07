@@ -10,6 +10,7 @@ const State = ({ control, label }) => {
       <Controller
         name="address.state"
         control={control}
+        defaultValue={""}
         rules={{
           required: {
             message: `${label} required`,

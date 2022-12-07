@@ -16,6 +16,7 @@ const Address = ({
       <Controller
         name={`address.${name}`}
         control={control}
+        defaultValue={""}
         rules={{
           required: {
             message: `${label} required`,
@@ -38,7 +39,7 @@ const Address = ({
           <TextField
             fullWidth
             required={true}
-            value={value || ""}
+            value={value}
             id={name}
             label={label}
             onChange={onChange}
