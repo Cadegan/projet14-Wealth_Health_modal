@@ -43,7 +43,7 @@ export default function Home() {
   //     .required("Please enter your age"),
   // });
 
-  const [openModal, setOpenModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const classes = useStyles();
 
@@ -61,7 +61,7 @@ export default function Home() {
   const onSubmit = (data) => {
     employees.push(data);
     localStorage.setItem("employees", JSON.stringify(employees));
-    setOpenModal(true);
+    setShowModal(true);
     // alert(JSON.stringify(data, null, 2));
   };
 
@@ -195,11 +195,11 @@ export default function Home() {
               <button className="button" type="submit">
                 Save
               </button>
-              {/* <button onClick={() => setOpenModal(true)}>Modal</button> */}
+              {/* <button onClick={() => setShowModal(true)}>Modal</button> */}
             </Grid>
           </Grid>
         </form>
-        <Modal open={openModal} closeModal={() => setOpenModal(false)}></Modal>
+        <Modal open={showModal} closeModal={() => setShowModal(false)}></Modal>
       </div>
     </main>
   );

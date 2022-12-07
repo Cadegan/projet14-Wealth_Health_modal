@@ -41,7 +41,7 @@ const Calendar = ({ control, name, label, disableFuture }) => {
                 "aria-label": "change date",
               }}
               // error={!!error}
-              // helperText={error ? error.message : null}
+              // helperText={error ? error.message : " "}
             />
           </MuiPickersUtilsProvider>
         )}
