@@ -13,6 +13,7 @@ import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";
 import Button from "@mui/material/Button";
+import CalendarTest from "../../components/Calendar/draft";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -91,6 +92,13 @@ export default function Home() {
               />
 
               <Calendar control={control} name="startDate" label="Start Date" />
+
+              <CalendarTest
+                control={control}
+                name="birthDayTest"
+                label="Birth Test"
+                maxDate={moment().subtract(18, "years")}
+              ></CalendarTest>
 
               {/* </section> */}
             </Grid>
