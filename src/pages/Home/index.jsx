@@ -12,6 +12,7 @@ import Modal from "../../components/Modal";
 import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";
+import Button from "@mui/material/Button";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -130,9 +131,15 @@ export default function Home() {
                 label="Zip Code"
               />
               <Departments control={control} />
-              <button className="button" type="submit" disabled={!isValid}>
+              <Button
+                type="submit"
+                color="success"
+                variant="contained"
+                disabled={!isValid}
+                sx={{ mt: 2 }}
+              >
                 Save
-              </button>
+              </Button>
               {/* <button onClick={() => setShowModal(true)}>Modal</button> */}
             </Grid>
           </Grid>
