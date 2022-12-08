@@ -51,7 +51,7 @@ export default function Home() {
     // register,
     handleSubmit,
     control,
-    // formState: { errors },
+    formState: { isValid },
   } = useForm({
     criteriaMode: "all",
     mode: "onChange",
@@ -192,14 +192,17 @@ export default function Home() {
                 label="Zip Code"
               />
               <Departments control={control} />
-              <button className="button" type="submit">
+              <button className="button" type="submit" disabled={!isValid}>
                 Save
               </button>
               {/* <button onClick={() => setShowModal(true)}>Modal</button> */}
             </Grid>
           </Grid>
         </form>
-        <Modal open={showModal} closeModal={() => setShowModal(false)}></Modal>
+        <Modal
+          openModal={showModal}
+          closeModal={() => setShowModal(false)}
+        ></Modal>
       </div>
     </main>
   );

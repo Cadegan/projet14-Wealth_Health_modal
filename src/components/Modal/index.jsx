@@ -1,5 +1,5 @@
-const Modal = ({ open, closeModal }) => {
-  if (!open) return null;
+const Modal = ({ openModal, closeModal }) => {
+  if (!openModal) return null;
   return (
     <div onClick={closeModal} className="modal">
       <div
@@ -8,7 +8,7 @@ const Modal = ({ open, closeModal }) => {
           e.stopPropagation();
         }}
       >
-        <div className="modalCloseBnt" onClick={closeModal}>
+        <div className="closeModalBnt" onClick={closeModal}>
           X
         </div>
         <div className="modalContent">
