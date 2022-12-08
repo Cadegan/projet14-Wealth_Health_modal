@@ -5,7 +5,7 @@ import {
   MuiPickersUtilsProvider,
 } from "@material-ui/pickers";
 
-const Calendar = ({ control, name, label, disableFuture }) => {
+const Calendar = ({ control, name, label, maxDate }) => {
   return (
     <div
       className={`${name}`}
@@ -24,24 +24,22 @@ const Calendar = ({ control, name, label, disableFuture }) => {
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker
-              // clearable
-              disableFuture={disableFuture}
+              maxDate={maxDate}
               required={true}
               value={value}
               label={label}
               autoComplete={name}
               fullWidth
-              // variant="standard"
               inputVariant="outlined"
-              margin="normal"
+              // margin="normal"
               id={name}
               format="MM/dd/yyyy"
               onChange={onChange}
               KeyboardButtonProps={{
                 "aria-label": "change date",
               }}
-              // error={!!error}
-              // helperText={error ? error.message : " "}
+              error={!!error}
+              helperText={error ? error.message : " "}
             />
           </MuiPickersUtilsProvider>
         )}
@@ -50,23 +48,3 @@ const Calendar = ({ control, name, label, disableFuture }) => {
   );
 };
 export default Calendar;
-
-// // v2
-// <KeyboardDatePicker
-//   clearable
-//   required={true}
-//   value={clearedDate}
-//   // label="Date of Birth"
-//   label={label}
-//   autoComplete={name}
-//   variant="standard"
-//   margin="normal"
-//   id={name}
-//   format="MM/dd/yyyy"
-//   onChange={handleClearedDateChange}
-//   KeyboardButtonProps={{
-//     "aria-label": "change date",
-//   }}
-//   // error={!!error}
-//   // helperText={error ? error.message : null}
-// />;
