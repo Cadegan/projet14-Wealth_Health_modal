@@ -7,7 +7,7 @@ const Modal = ({ openModal, closeModal }) => {
     } else {
       document.body.removeAttribute("style");
     }
-  });
+  }, [openModal]);
 
   if (!openModal) {
     return null;
