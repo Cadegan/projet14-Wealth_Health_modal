@@ -3,6 +3,7 @@ import {
   useState,
   // useEffect
 } from "react";
+// import Calendar from "../../components/Calendar/index-old";
 import Calendar from "../../components/Calendar";
 import State from "../../components/State";
 import IdentityInput from "../../components/Identity";
@@ -13,7 +14,6 @@ import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";
 import Button from "@mui/material/Button";
-import CalendarTest from "../../components/Calendar/draft";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -93,12 +93,12 @@ export default function Home() {
 
               <Calendar control={control} name="startDate" label="Start Date" />
 
-              <CalendarTest
+              {/* <CalendarTest
                 control={control}
                 name="birthDayTest"
                 label="Birth Test"
                 maxDate={moment().subtract(18, "years")}
-              ></CalendarTest>
+              ></CalendarTest> */}
 
               {/* </section> */}
             </Grid>

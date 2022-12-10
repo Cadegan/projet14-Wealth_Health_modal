@@ -1,50 +1,56 @@
 import { Controller } from "react-hook-form";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  KeyboardDatePicker,
-  MuiPickersUtilsProvider,
-} from "@material-ui/pickers";
 
-const Calendar = ({ control, name, label, maxDate }) => {
+import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
+import { TextField } from "@mui/material";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+
+const CalendarTest = ({ control, name, label, maxDate }) => {
   return (
-    <div
-      className={`${name}`}
-      // className="birthDaySection"
-    >
-      <Controller
-        name={`identity.${name}`}
-        control={control}
-        defaultValue={null}
-        rules={{
-          required: {
-            message: "Required",
-            value: true,
-          },
-        }}
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <KeyboardDatePicker
+    <div className={`${name}`}>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <Controller
+          name={`identity.${name}`}
+          control={control}
+          defaultValue={null}
+          rules={{
+            required: {
+              message: "Required",
+              value: true,
+            },
+          }}
+          render={({
+            field: { onChange, value },
+            fieldState: { error, invalid },
+          }) => (
+            <MobileDatePicker
               maxDate={maxDate}
               required={true}
               value={value}
-              label={label}
+              label={`${label} *`}
               autoComplete={name}
-              fullWidth
+              inputFormat="MM/DD/yyyy"
               inputVariant="outlined"
-              // margin="normal"
-              id={name}
-              format="MM/dd/yyyy"
               onChange={onChange}
               KeyboardButtonProps={{
                 "aria-label": "change date",
               }}
-              error={!!error}
-              helperText={error ? error.message : " "}
-            />
-          </MuiPickersUtilsProvider>
-        )}
-      ></Controller>
+              renderInput={(params) => (
+                // console.log(invalid),
+                <TextField
+                  id="dateOfBirth"
+                  variant="outlined"
+                  fullWidth
+                  color="primary"
+                  {...params}
+                  error={invalid}
+                  helperText={invalid ? error.message : " "}
+                ></TextField>
+              )}
+            ></MobileDatePicker>
+          )}
+        ></Controller>
+      </LocalizationProvider>
     </div>
   );
 };
-export default Calendar;
+export default CalendarTest;
