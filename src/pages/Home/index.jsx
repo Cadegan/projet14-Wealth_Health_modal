@@ -5,7 +5,7 @@ import {
 } from "react";
 // import Calendar from "../../components/Calendar/index-old";
 import Calendar from "../../components/Calendar";
-import State from "../../components/State";
+import State from "../../components/States";
 import IdentityInput from "../../components/Identity";
 import Address from "../../components/Address";
 import Departments from "../../components/Departments";

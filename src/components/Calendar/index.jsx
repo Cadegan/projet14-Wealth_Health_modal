@@ -23,6 +23,7 @@ const CalendarTest = ({ control, name, label, maxDate }) => {
             fieldState: { error, invalid },
           }) => (
             <MobileDatePicker
+              // showToolbar={false}
               maxDate={maxDate}
               required={true}
               value={value}
