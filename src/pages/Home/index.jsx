@@ -30,6 +30,7 @@ export default function Home() {
   const {
     // register,
     handleSubmit,
+    reset,
     control,
     formState: { isValid },
   } = useForm({
@@ -41,6 +42,7 @@ export default function Home() {
     employees.push(data);
     localStorage.setItem("employees", JSON.stringify(employees));
     setShowModal(true);
+    reset();
     // alert(JSON.stringify(data, null, 2));
   };
 
@@ -127,7 +129,7 @@ export default function Home() {
                 name="city"
                 label="City"
               />
-              <State label="State" control={control}></State>
+              <State control={control} label="State"></State>
               {/* </section> */}
               <Address
                 control={control}
@@ -139,18 +141,18 @@ export default function Home() {
                 label="Zip Code"
               />
               <Departments control={control} />
-              <Button
-                type="submit"
-                color="success"
-                variant="contained"
-                disabled={!isValid}
-                sx={{ mt: 2 }}
-              >
-                Save
-              </Button>
-              {/* <button onClick={() => setShowModal(true)}>Modal</button> */}
             </Grid>
           </Grid>
+          <Button
+            type="submit"
+            color="success"
+            variant="contained"
+            disabled={!isValid}
+            sx={{ mt: 2 }}
+          >
+            Save
+          </Button>
+          {/* <button onClick={() => setShowModal(true)}>Modal</button> */}
         </form>
         <Modal
           openModal={showModal}

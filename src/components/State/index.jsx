@@ -20,6 +20,7 @@ const State = ({ control, label }) => {
         render={({ field, fieldState: { error } }) => (
           <Autocomplete
             options={getStatesCollection}
+            value={field.value || null}
             getOptionLabel={(option) => option.name}
             renderOption={(option) => <span>{option.name}</span>}
             renderInput={(params) => (
