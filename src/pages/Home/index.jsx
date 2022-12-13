@@ -14,6 +14,7 @@ import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";
 import Button from "@mui/material/Button";
+import Nav from "../../components/Nav";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -63,12 +64,11 @@ export default function Home() {
 
   return (
     <main className="main">
-      <div className="title">
-        <h1>HRnet</h1>
-      </div>
+      <Nav></Nav>
+
       <div className="container">
-        <a href="employee-list.html">View Current Employees</a>
-        <h2>Create Employee</h2>
+        {/* <a href="employee-list.html">View Current Employees</a>
+        <h2>Create Employee</h2> */}
         <form className={classes.pageContent} onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={4}>
