@@ -5,7 +5,7 @@ import {
 } from "react";
 // import Calendar from "../../components/Calendar/index-old";
 import Calendar from "../../components/Calendar";
-import State from "../../components/States";
+import States from "../../components/States";
 import IdentityInput from "../../components/Identity";
 import Address from "../../components/Address";
 import Departments from "../../components/Departments";
@@ -129,7 +129,7 @@ export default function Home() {
                 name="city"
                 label="City"
               />
-              <State control={control} label="State"></State>
+              <States control={control} label="States"></States>
               {/* </section> */}
               <Address
                 control={control}
