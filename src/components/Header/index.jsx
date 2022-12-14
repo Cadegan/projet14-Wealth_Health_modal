@@ -105,8 +105,11 @@ function ResponsiveAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            // component="a"
+            // href="/"
+            component={Link}
+            label="Home"
+            to="/"
             sx={{
               mr: 2,
               flexGrow: 1,
@@ -140,14 +143,16 @@ function ResponsiveAppBar() {
               onChange={handleChange}
               aria-label="nav tabs"
             >
-              <LinkTab
+              <Tab
                 label="Create Employee"
-                href="/"
+                component={Link}
+                to="/"
                 sx={{ my: 2, color: "#4C6306", display: "block" }}
               />
-              <LinkTab
+              <Tab
                 label="View Current Employees"
-                href="/view"
+                component={Link}
+                to="/employee-list"
                 sx={{ my: 2, color: "#4C6306", display: "block" }}
               />
             </Tabs>
