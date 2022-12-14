@@ -14,7 +14,7 @@ import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";
 import Button from "@mui/material/Button";
-import Nav from "../../components/Nav";
+import Header from "../../components/Header";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -64,7 +64,7 @@ export default function Home() {
 
   return (
     <main className="main">
-      <Nav></Nav>
+      <Header></Header>
 
       <div className="container">
         {/* <a href="employee-list.html">View Current Employees</a>
