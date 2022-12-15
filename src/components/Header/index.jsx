@@ -2,49 +2,27 @@ import * as React from "react";
 import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-// import Toolbar from "@mui/material/Toolbar";
-// import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-// import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-// import Button from "@mui/material/Button";
-// import Tooltip from "@mui/material/Tooltip";
-// import MenuItem from "@mui/material/MenuItem";
-// import AdbIcon from "@mui/icons-material/Adb";
-// import MenuIcon from "@mui/icons-material/Menu";
 import logo from "./logo_HRnet.jpeg";
-
-////
 
 import {
   Drawer,
   ListItem,
   ListItemIcon,
   ListItemText,
-  //   Button,
   Divider,
 } from "@material-ui/core";
 import {
-  // CheckBoxOutlineBlankOutlined,
-  // DraftsOutlined,
   HomeOutlined,
-  // Image,
-  // InboxOutlined,
   PersonAddAlt1Rounded,
   GroupsRounded,
-  // ListAlt,
-  // ListAlt,
-  // MailOutline,
-  // ReceiptOutlined,
 } from "@mui/icons-material";
 import { Toolbar, IconButton, Tabs, Tab } from "@mui/material";
 import { Link } from "react-router-dom";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import PersonAddAlt1RoundedIcon from "@mui/icons-material/PersonAddAlt1Rounded";
 
-// const pages = ["Create Employee", "View Current Employees"];
-const data = [
+const drawerOption = [
   {
     name: "Home",
     icon: <HomeOutlined />,
@@ -62,7 +40,6 @@ const data = [
     icon: <GroupsRounded />,
     component: { Link },
     to: "/employee-list",
-    //  <a href="employee-list.html">View Current Employees</a>
   },
 ];
 
@@ -72,12 +49,10 @@ function ResponsiveAppBar() {
 
   const getList = () => (
     <div style={{ width: 270 }} onClick={() => setOpen(false)}>
-      {data.map((item, index) => (
+      {drawerOption.map((item, index) => (
         <ListItem component={Link} to={item.to} button key={index}>
           <ListItemIcon>{item.icon}</ListItemIcon>
           <ListItemText primary={item.name} />
-          {/* <ListAlt to={item.to}></ListAlt> */}
-          {/* <Route>{item.href}</Route> */}
         </ListItem>
       ))}
     </div>
@@ -114,9 +89,6 @@ function ResponsiveAppBar() {
             <Typography
               variant="h6"
               noWrap
-              // component={Link}
-              // label="Home"
-              // to="/"
               sx={{
                 mr: 2,
                 flexGrow: 1,
@@ -141,11 +113,9 @@ function ResponsiveAppBar() {
                   component={Link}
                   to="/"
                   sx={{
-                    // my: 2,
                     color: "#4C6306",
                     display: "block",
                     py: 4,
-                    // px: 1,
                   }}
                 />
                 <Tab
@@ -153,11 +123,9 @@ function ResponsiveAppBar() {
                   component={Link}
                   to="/employee-list"
                   sx={{
-                    // my: 2,
                     color: "#4C6306",
                     display: "block",
                     py: 4,
-                    // px: 1,
                   }}
                 />
               </Tabs>
@@ -199,7 +167,6 @@ function ResponsiveAppBar() {
               variant="h5"
               noWrap
               component="a"
-              // href=""
               sx={{
                 flexGrow: 1,
                 fontFamily: "monospace",
