@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const Modal = ({ openModal, closeModal }) => {
+const Modal = ({ openModal, closeModal, message }) => {
   /* This is a hook that is used to detect if the modal is open or not. If it is open, it will add a
   style to the body of the document to hide the overflow. If it is not open, it will remove the
   style from the body of the document. */
@@ -27,7 +27,7 @@ const Modal = ({ openModal, closeModal }) => {
             X
           </div>
           <div className="modalContent">
-            <span>Employee Created!</span>
+            <span>{message}</span>
           </div>
         </div>
       </div>

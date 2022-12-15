@@ -63,13 +63,17 @@ export default function Home() {
   // });
 
   return (
-    <main className="main">
+    <>
       {/* <Header></Header> */}
 
       <div className="container">
         {/* <a href="employee-list.html">View Current Employees</a>
         <h2>Create Employee</h2> */}
-        <form className={classes.pageContent} onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className={classes.pageContent}
+          id="create-employee"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Grid container spacing={2} justifyContent="center">
             <Grid item xs={4}>
               <IdentityInput
@@ -157,8 +161,9 @@ export default function Home() {
         <Modal
           openModal={showModal}
           closeModal={() => setShowModal(false)}
+          message={"Employee has been created"}
         ></Modal>
       </div>
-    </main>
+    </>
   );
 }
