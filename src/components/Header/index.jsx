@@ -26,30 +26,42 @@ import {
   Divider,
 } from "@material-ui/core";
 import {
-  CheckBoxOutlineBlankOutlined,
+  // CheckBoxOutlineBlankOutlined,
   // DraftsOutlined,
   HomeOutlined,
   // Image,
-  InboxOutlined,
+  // InboxOutlined,
+  PersonAddAlt1Rounded,
+  GroupsRounded,
+  // ListAlt,
   // ListAlt,
   // MailOutline,
   // ReceiptOutlined,
 } from "@mui/icons-material";
-import { Toolbar, IconButton, Icon, Tabs, Tab } from "@mui/material";
-import { Link, Route } from "react-router-dom";
+import { Toolbar, IconButton, Tabs, Tab } from "@mui/material";
+import { Link } from "react-router-dom";
 // import MenuIcon from "@mui/icons-material/Menu";
+// import PersonAddAlt1RoundedIcon from "@mui/icons-material/PersonAddAlt1Rounded";
 
 // const pages = ["Create Employee", "View Current Employees"];
 const data = [
   {
     name: "Home",
     icon: <HomeOutlined />,
+    component: { Link },
+    to: "/",
   },
-  { name: "Create Employee", icon: <InboxOutlined /> },
+  {
+    name: "Create Employee",
+    icon: <PersonAddAlt1Rounded />,
+    component: { Link },
+    to: "/",
+  },
   {
     name: "View Current Employees",
-    icon: <CheckBoxOutlineBlankOutlined />,
-    href: "employee-list.html",
+    icon: <GroupsRounded />,
+    component: { Link },
+    to: "/employee-list",
     //  <a href="employee-list.html">View Current Employees</a>
   },
 ];
@@ -59,11 +71,12 @@ function ResponsiveAppBar() {
   const [tabValue, setTabValue] = useState(0 || false);
 
   const getList = () => (
-    <div style={{ width: 250 }} onClick={() => setOpen(false)}>
+    <div style={{ width: 270 }} onClick={() => setOpen(false)}>
       {data.map((item, index) => (
-        <ListItem button key={index}>
+        <ListItem component={Link} to={item.to} button key={index}>
           <ListItemIcon>{item.icon}</ListItemIcon>
           <ListItemText primary={item.name} />
+          {/* <ListAlt to={item.to}></ListAlt> */}
           {/* <Route>{item.href}</Route> */}
         </ListItem>
       ))}
@@ -86,22 +99,24 @@ function ResponsiveAppBar() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            <Box
-              component="img"
-              sx={{
-                mx: 1,
-                height: 65,
-              }}
-              alt="HRnet logo"
-              src={logo}
-            />
+            <Box component={Link} label="Home" to="/">
+              <Box
+                component="img"
+                sx={{
+                  mx: 1,
+                  height: 65,
+                }}
+                alt="HRnet logo"
+                src={logo}
+              />
+            </Box>
 
             <Typography
               variant="h6"
               noWrap
-              component={Link}
-              label="Home"
-              to="/"
+              // component={Link}
+              // label="Home"
+              // to="/"
               sx={{
                 mr: 2,
                 flexGrow: 1,
@@ -184,7 +199,7 @@ function ResponsiveAppBar() {
               variant="h5"
               noWrap
               component="a"
-              href=""
+              // href=""
               sx={{
                 flexGrow: 1,
                 fontFamily: "monospace",
@@ -196,15 +211,17 @@ function ResponsiveAppBar() {
             >
               HRnet
             </Typography>
-            <Box
-              component="img"
-              sx={{
-                marginRight: 1.5,
-                height: 40,
-              }}
-              alt="HRnet logo"
-              src={logo}
-            />
+            <Box component={Link} label="Home" to="/">
+              <Box
+                component="img"
+                sx={{
+                  marginRight: 1.5,
+                  height: 40,
+                }}
+                alt="HRnet logo"
+                src={logo}
+              />
+            </Box>
           </Box>
         </Toolbar>
       </Container>

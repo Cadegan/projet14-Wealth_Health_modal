@@ -99,13 +99,6 @@ export default function Home() {
 
               <Calendar control={control} name="startDate" label="Start Date" />
 
-              {/* <CalendarTest
-                control={control}
-                name="birthDayTest"
-                label="Birth Test"
-                maxDate={moment().subtract(18, "years")}
-              ></CalendarTest> */}
-
               {/* </section> */}
             </Grid>
             <Grid item xs={6}>
