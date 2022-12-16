@@ -1,12 +1,14 @@
-import * as React from "react";
+import React, { useState } from "react";
+
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
-import { useState } from "react";
+import storageList from "../../slices/storage";
 
 const VISIBLE_FIELDS = ["name", "rating", "country", "dateCreated", "isAdmin"];
 
 export default function EmployeeList() {
   const { data } = useDemoData({
+    // const { data } = storageList.getEmployeeList({
     dataSet: "Employee",
     visibleFields: VISIBLE_FIELDS,
     rowLength: 100,

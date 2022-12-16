@@ -20,7 +20,7 @@ import {
   GroupsRounded,
 } from "@mui/icons-material";
 import { Toolbar, IconButton, Tabs, Tab } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const drawerOption = [
   {
@@ -45,7 +45,8 @@ const drawerOption = [
 
 function ResponsiveAppBar() {
   const [open, setOpen] = useState(false);
-  const [tabValue, setTabValue] = useState(0 || false);
+  const [tabValue, setTabValue] = useState(0);
+  // const location = useLocation();
 
   const getList = () => (
     <div style={{ width: 270 }} onClick={() => setOpen(false)}>
@@ -106,7 +107,7 @@ function ResponsiveAppBar() {
               <Tabs
                 value={tabValue}
                 onChange={handleChange}
-                aria-label="nav tabs"
+                aria-label="Navigation"
               >
                 <Tab
                   label="Create Employee"
