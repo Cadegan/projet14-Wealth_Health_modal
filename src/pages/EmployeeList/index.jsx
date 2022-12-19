@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
-import storageList from "../../slices/storage";
+import actionType from "../../slices/actionType";
 
 const VISIBLE_FIELDS = ["name", "rating", "country", "dateCreated", "isAdmin"];
 

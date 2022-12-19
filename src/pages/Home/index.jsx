@@ -14,7 +14,10 @@ import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";
 import Button from "@mui/material/Button";
+import { useDispatch } from "react-redux";
+import { employeeAction } from "../../slices/employeeSlice";
 // import Header from "../../components/Header";
+import initialEmployeeList from "../../data/dataMoked.json";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -28,6 +31,8 @@ export default function Home() {
 
   const classes = useStyles();
 
+  const dispatch = useDispatch();
+
   const {
     // register,
     handleSubmit,
@@ -38,17 +43,26 @@ export default function Home() {
     criteriaMode: "all",
     mode: "onChange",
   });
-  const employees = JSON.parse(localStorage.getItem("employees")) || [];
+
+  /* onSubmit V1 */
   const onSubmit = (data) => {
+    const employees = JSON.parse(localStorage.getItem("employees")) || [
+      ...initialEmployeeList,
+    ];
     employees.push(data);
     localStorage.setItem("employees", JSON.stringify(employees));
     setShowModal(true);
     reset();
-    // alert(JSON.stringify(data, null, 2));
+
+    console.log("Submit result", employees);
   };
 
-  console.log("Submit result", employees);
-  // console.log("errors", errors);
+  /* onSubmit V2 */
+  // const onSubmit = (data) => {
+  //   dispatch(employeeAction.addEmployee({ ...data }));
+  //   setShowModal(true);
+  //   reset();
+  // };
 
   // const [data, setData] = useState(null);
 

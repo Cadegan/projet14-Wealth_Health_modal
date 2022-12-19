@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import storageList from "./storage";
+import actionType from "../slices/actionType";
 
 const employee = createSlice({
   name: "addEmployee",
   initialState: {
-    employeeList: storageList.getEmployeeList(),
+    employeeList: actionType.getEmployeeList(),
   },
 
   reducers: {
     addEmployee: (state, action) => {
-      state.employeeList.ushift(action.payload);
-      storageList.setEmployeeList(state.employeeList);
+      // state.employeeList.ushift(action.payload);
+      actionType.setEmployeeList(state.employeeList);
     },
   },
 });
