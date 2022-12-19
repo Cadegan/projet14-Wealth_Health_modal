@@ -64,7 +64,11 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="relative" sx={{ bgcolor: "white" }}>
+    <AppBar
+      elevation={0}
+      position="relative"
+      sx={{ bgcolor: "white", borderBottom: 1, borderColor: "grey.300" }}
+    >
       <Container sx={{ maxWidth: "xl" }} disableGutters>
         <Toolbar disableGutters>
           {/* Desktop */}

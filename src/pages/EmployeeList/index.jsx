@@ -23,11 +23,16 @@ export default function EmployeeList() {
       rowsPerPageOptions={[10, 25, 50, 100]}
       pagination
       // autoPageSize
-
-      style={{
-        height: "100vh",
-        paddingTop: 24,
-        border: "none",
+      sx={{
+        p: 1,
+        m: 2,
+        color: "grey.800",
+        bgcolor: "grey.50",
+        border: 1,
+        borderColor: "grey.100",
+        borderRadius: 2,
+        fontWeight: 700,
+        // boxShadow: 9,
       }}
       {...data}
       components={{ Toolbar: GridToolbar }}

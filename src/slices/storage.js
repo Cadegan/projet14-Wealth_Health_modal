@@ -1,14 +1,16 @@
 import initialEmployeeList from "../data/dataMoked.json";
 
 const getEmployeeList = () => {
-  const data = localStorage.getItem("employeeList");
-  console.log({ data });
-  const list = data === null ? initialEmployeeList : JSON.parse(data);
+  const data = localStorage.getItem("employees");
+  console.log("**Employees in localStorage**", { data });
+  const list = data == null ? initialEmployeeList : JSON.parse(data);
+  // const resultsData = data?.resultsData;
+  console.log("**Initial list**", { list });
   return list;
 };
 
-const setEmployeeList = (employeeList) => {
-  localStorage.setItem("employeeList", JSON.stringify(employeeList));
+const setEmployeeList = (employees) => {
+  localStorage.setItem("employees", JSON.stringify(employees));
 };
 
 const storageList = { getEmployeeList, setEmployeeList };
