@@ -1,4 +1,4 @@
-import initialEmployeeList from "../data/dataMoked.json";
+import initialEmployeeList from "../dataMoked.json";
 
 const getEmployeeList = () => {
   const data = localStorage.getItem("employees");

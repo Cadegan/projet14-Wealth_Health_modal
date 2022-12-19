@@ -1,24 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
-import actionType from "../slices/actionType";
+// import actionType from "../slices/actionType";
+import initialEmployeeList from "../dataMoked.json";
 
-const employee = createSlice({
+/* V3 */
+const initialState = {
+  employees: JSON.parse(localStorage.getItem("employees")) || [
+    ...initialEmployeeList,
+  ],
+};
+
+export const employeeSlice = createSlice({
   name: "addEmployee",
-  initialState: {
-    employeeList: actionType.getEmployeeList(),
-  },
-
+  initialState,
   reducers: {
     addEmployee: (state, action) => {
-      // state.employeeList.ushift(action.payload);
-      actionType.setEmployeeList(state.employeeList);
+      state.employees.push(action.payload);
     },
   },
 });
 
-const employeeAction = employee.actions;
-const employeeReducer = employee.reducer;
+export const { addEmployee } = employeeSlice.actions;
+export default employeeSlice.reducer;
 
-export { employeeAction, employeeReducer };
+/* V2 */
+// const employee = createSlice({
+//   name: "addEmployee",
+//   initialState: {
+//     employeeList: actionType.getEmployeeList(),
+//   },
+//   reducers: {
+//     addEmployee: (state, action) => {
+//       // state.employeeList.ushift(action.payload);
+//       actionType.setEmployeeList(state.employeeList);
+//     },
+//   },
+// });
+
+// const employeeAction = employee.actions;
+// const employeeReducer = employee.reducer;
+
+// export { employeeAction, employeeReducer };
 
 ////////////////////////////////////////////////////////////////////////
 

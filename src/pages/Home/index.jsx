@@ -17,7 +17,7 @@ import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { employeeAction } from "../../slices/employeeSlice";
 // import Header from "../../components/Header";
-import initialEmployeeList from "../../data/dataMoked.json";
+import initialEmployeeList from "../../dataMoked.json";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -57,7 +57,7 @@ export default function Home() {
     console.log("Submit result", employees);
   };
 
-  /* onSubmit V2 */
+  // /* onSubmit V2 */
   // const onSubmit = (data) => {
   //   dispatch(employeeAction.addEmployee({ ...data }));
   //   setShowModal(true);
