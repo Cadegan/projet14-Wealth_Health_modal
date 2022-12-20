@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
 import actionType from "../../slices/actionType";
-import { useDispatch } from "react-redux";
-// import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // const VISIBLE_FIELDS = ["name", "rating", "country", "dateCreated", "isAdmin"];
 
@@ -19,31 +18,51 @@ import { useDispatch } from "react-redux";
 //   });
 
 const columns = [
-  { field: "firstName", headerName: "First Name" },
-  { field: "lastName", headerName: "Last Name" },
-  { field: "birthDay", headerName: "Birth Day" },
-  { field: "startDate", headerName: "Start Date" },
-  { field: "street", headerName: "Street" },
-  { field: "city", headerName: "City" },
-  { field: "name", headerName: "State" },
-  { field: "zipCode", headerName: "Zip Code" },
-  { field: "department", headerName: "Department" },
+  // { field: "id", headerName: "Id", flex: 1 },
+  { field: "firstName", headerName: "First Name", flex: 1 },
+  { field: "lastName", headerName: "Last Name", flex: 1 },
+  { field: "birthDay", headerName: "Birth Day", flex: 1 },
+  { field: "startDate", headerName: "Start Date", flex: 1 },
+  { field: "street", headerName: "Street", flex: 1 },
+  { field: "city", headerName: "City", flex: 1 },
+  { field: "name", headerName: "State", flex: 1 },
+  { field: "zipCode", headerName: "Zip Code", flex: 1 },
+  { field: "department", headerName: "Department", flex: 1 },
 ];
 
 const Table = () => {
-  const [tableData, setTableDate] = useState([]);
   const dispatch = useDispatch();
+  const [tableData, setTableDate] = useState([]);
   const [pageSize, setPageSize] = useState(10);
 
-  useEffect(() => {
-    dispatch(actionType.getEmployeeList);
-  });
+  // useEffect(() => {
+  //   dispatch(actionType.getEmployeeList);
+  // });
+  // console.log("**dispatch**", tableData);
 
-  console.log(tableData);
+  const useSelectorData = useSelector((state) => state.employee.employeesArray);
+  // console.log("**useSelector**", useSelectorData);
+
+  // let rows = [];
+  const rows = useSelectorData.map((obj, id) => {
+    return {
+      id: id,
+      firstName: obj.identity.firstName,
+      lastName: obj.identity.lastName,
+      birthDay: obj.identity.birthDay,
+      startDate: obj.identity.startDate,
+      street: obj.address.street,
+      city: obj.address.city,
+      zipCode: obj.address.zipCode,
+      name: obj.address.state.name,
+      department: obj.department,
+    };
+  });
+  console.log("**Rows**", rows);
 
   return (
     <DataGrid
-      rows={tableData}
+      rows={rows}
       columns={columns}
       pageSize={pageSize}
       onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
