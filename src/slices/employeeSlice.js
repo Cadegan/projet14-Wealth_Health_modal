@@ -4,7 +4,7 @@ import initialEmployeeList from "../dataMoked.json";
 
 /* V3 */
 const initialState = {
-  employees: JSON.parse(localStorage.getItem("employees")) || [
+  employeesArray: JSON.parse(localStorage.getItem("employeesList")) || [
     ...initialEmployeeList,
   ],
 };
@@ -14,7 +14,7 @@ export const employeeSlice = createSlice({
   initialState,
   reducers: {
     addEmployee: (state, action) => {
-      state.employees.push(action.payload);
+      state.employeesArray.push(action.payload);
     },
   },
 });

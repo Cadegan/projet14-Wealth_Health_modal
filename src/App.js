@@ -6,6 +6,7 @@ import Header from "../src/components/Header";
 // import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import EmployeeList from "./pages/EmployeeList/";
+import Table from "./pages/EmployeeList/indexv2";
 import Error from "./pages/Error";
 
 const theme = createMuiTheme();
@@ -18,7 +19,7 @@ function App() {
         {/* <MainNav /> */}
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/employee-list" element={<EmployeeList />}></Route>
+          <Route exact path="/employee-list" element={<Table />}></Route>
           <Route exact path="*" element={<Error />}></Route>
         </Routes>
         {/* <Footer /> */}
