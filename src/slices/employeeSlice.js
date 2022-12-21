@@ -4,7 +4,7 @@ import initialEmployeeList from "../dataMoked.json";
 
 /* V3 */
 const initialState = {
-  employeesArray: JSON.parse(localStorage.getItem("employeesList")) || [
+  employeesArray: JSON.parse(localStorage.getItem("list")) || [
     ...initialEmployeeList,
   ],
 };

@@ -5,8 +5,8 @@ import Header from "../src/components/Header";
 // import MainNav from "./components/MainNav";
 // import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import EmployeeList from "./pages/EmployeeList/";
-import Table from "./pages/EmployeeList/indexv2";
+import EmployeeList from "./pages/EmployeeList/index_old";
+import Table from "./pages/EmployeeList";
 import Error from "./pages/Error";
 
 const theme = createMuiTheme();
