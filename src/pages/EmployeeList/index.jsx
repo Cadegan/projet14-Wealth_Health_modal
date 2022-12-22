@@ -4,6 +4,7 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
 import actionType from "../../slices/actionType";
 import { useDispatch, useSelector } from "react-redux";
+import { format } from "date-fns";
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -20,15 +21,36 @@ const Table = () => {
 
   const columns = [
     // { field: "id", headerName: "Id", flex: 1,, },
-    { field: "firstName", headerName: "First Name", flex: 1 },
-    { field: "lastName", headerName: "Last Name", flex: 1 },
-    { field: "birthDay", headerName: "Birth Day", flex: 1 },
-    { field: "startDate", headerName: "Start Date", flex: 1 },
-    { field: "street", headerName: "Street", flex: 1 },
-    { field: "city", headerName: "City", flex: 1 },
-    { field: "name", headerName: "State", flex: 1 },
-    { field: "zipCode", headerName: "Zip Code", flex: 1 },
-    { field: "department", headerName: "Department", flex: 1 },
+    { field: "firstName", headerName: "First Name", minWidth: 120, flex: 1 },
+    { field: "lastName", headerName: "Last Name", minWidth: 120, flex: 1 },
+    {
+      field: "birthDay",
+      headerName: "Birth Day",
+      renderCell: ({ value }) =>
+        value ? format(new Date(value), `yyyy-LL-dd`) : "N/A",
+      type: "date",
+      minWidth: 120,
+      // flex: 1,
+    },
+    {
+      field: "startDate",
+      headerName: "Start Date",
+      renderCell: ({ value }) =>
+        value ? format(new Date(value), `yyyy-LL-dd`) : "N/A",
+      type: "date",
+      minWidth: 120,
+      // flex: 1,
+    },
+    { field: "street", headerName: "Street", minWidth: 250, flex: 1 },
+    { field: "city", headerName: "City", minWidth: 120, flex: 1 },
+    { field: "name", headerName: "State", minWidth: 120, flex: 1 },
+    {
+      field: "zipCode",
+      headerName: "Zip Code",
+      minWidth: 100,
+      // flex: 1
+    },
+    { field: "department", headerName: "Department", minWidth: 150, flex: 1 },
   ];
 
   // let rows = [];
