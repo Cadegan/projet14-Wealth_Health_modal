@@ -133,6 +133,16 @@ function ResponsiveAppBar() {
                     py: 4,
                   }}
                 />
+                <Tab
+                  label="View Current Employees"
+                  component={Link}
+                  to="/employee-list-bis"
+                  sx={{
+                    color: "#4C6306",
+                    display: "block",
+                    py: 4,
+                  }}
+                />
               </Tabs>
             </Box>
           </Box>
