@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { useDemoData } from "@mui/x-data-grid-generator";
+
 import actionType from "../../slices/actionType";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "date-fns";
@@ -29,8 +29,8 @@ const Table = () => {
       renderCell: ({ value }) =>
         value ? format(new Date(value), `yyyy-LL-dd`) : "N/A",
       type: "date",
-      minWidth: 120,
-      // flex: 1,
+      minWidth: 110,
+      flex: 1,
     },
     {
       field: "startDate",
@@ -38,22 +38,21 @@ const Table = () => {
       renderCell: ({ value }) =>
         value ? format(new Date(value), `yyyy-LL-dd`) : "N/A",
       type: "date",
-      minWidth: 120,
-      // flex: 1,
+      minWidth: 110,
+      flex: 1,
     },
     { field: "street", headerName: "Street", minWidth: 250, flex: 1 },
     { field: "city", headerName: "City", minWidth: 120, flex: 1 },
-    { field: "name", headerName: "State", minWidth: 120, flex: 1 },
+    { field: "name", headerName: "State", minWidth: 160, flex: 1 },
     {
       field: "zipCode",
       headerName: "Zip Code",
       minWidth: 100,
-      // flex: 1
+      flex: 1,
     },
     { field: "department", headerName: "Department", minWidth: 150, flex: 1 },
   ];
 
-  // let rows = [];
   let rows = data.map((obj, id) => {
     return {
       id: id,
