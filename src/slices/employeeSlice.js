@@ -1,10 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  // ,nanoid
+} from "@reduxjs/toolkit";
 // import actionType from "../slices/actionType";
 import initialEmployeeList from "../dataMoked.json";
 
 /* V3 */
 const initialState = {
-  employeesArray: JSON.parse(localStorage.getItem("list")) || [
+  employeesArray: JSON.parse(localStorage.getItem("employees")) || [
     ...initialEmployeeList,
   ],
 };
@@ -14,7 +17,19 @@ export const employeeSlice = createSlice({
   initialState,
   reducers: {
     addEmployee: (state, action) => {
-      state.employeesArray.push(action.payload);
+      /* v1 */
+      //  state.employeesArray.push(action.payload);
+
+      /* v2 */
+      return [...state, action.payload];
+    },
+    prepare: (payload) => {
+      return {
+        payload: {
+          // id: nanoid(),
+          ...payload,
+        },
+      };
     },
   },
 });
@@ -63,30 +78,3 @@ export default employeeSlice.reducer;
 // };
 
 // console.log("Submit result", employees);
-
-//////////////////////////////////////////////////////////////////////////
-
-// import axios from "axios";
-// import { createAsyncThunk } from "@reduxjs/toolkit";
-
-// export const getEmployeesDetails = createAsyncThunk(
-//   "auth/fetchEmployeesDetails",
-//   async (arg, { rejectWithValue }) => {
-//     try {
-//       const response = await axios({
-//         method: "post",
-//         url: "public/employees.json",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       });
-//       return { ...response.data };
-//     } catch (error) {
-//       if (error.response && error.response.data.message) {
-//         return rejectWithValue(error.response.data.message);
-//       } else {
-//         return rejectWithValue(error.message);
-//       }
-//     }
-//   }
-// );

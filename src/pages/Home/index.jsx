@@ -3,7 +3,7 @@ import {
   useState,
   // useEffect
 } from "react";
-// import Calendar from "../../components/Calendar/index-old";
+
 import Calendar from "../../components/Calendar";
 import States from "../../components/States";
 import IdentityInput from "../../components/Identity";
@@ -16,7 +16,7 @@ import moment from "moment";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { employeeAction } from "../../slices/employeeSlice";
-// import Header from "../../components/Header";
+
 import initialEmployeeList from "../../dataMoked.json";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,10 +46,15 @@ export default function Home() {
 
   /* onSubmit V1 */
   const onSubmit = (data) => {
+    /* This is a ternary operator. It is saying if there is something in localStorage, then parse it
+    and set it to employees. If there is nothing in localStorage, then set employees to an empty
+    array. */
     const employees = JSON.parse(localStorage.getItem("employees")) || [
       ...initialEmployeeList,
     ];
+    /* Pushing the data into the employees array. */
     employees.push(data);
+    /* Setting the employees array to localStorage. */
     localStorage.setItem("employees", JSON.stringify(employees));
     setShowModal(true);
     reset();

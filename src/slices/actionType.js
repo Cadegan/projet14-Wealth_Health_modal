@@ -10,11 +10,11 @@ const getEmployeeList = () => {
 };
 
 const setEmployeeList = (employees) => {
-  localStorage.setItem("employeesList", JSON.stringify(employees));
+  localStorage.setItem("employees", JSON.stringify(employees));
 };
 
-const storageList = { getEmployeeList, setEmployeeList };
-export default storageList;
+const ActionType = { getEmployeeList, setEmployeeList };
+export default ActionType;
 
 // import employeeList from "../../public/employee-data.json";
 

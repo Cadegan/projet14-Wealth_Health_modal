@@ -5,6 +5,7 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import actionType from "../../slices/actionType";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "date-fns";
+import { nanoid } from "@reduxjs/toolkit";
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const Table = () => {
   console.log("**useSelector**", data);
 
   const columns = [
-    // { field: "id", headerName: "Id", flex: 1,, },
+    // { field: "id", headerName: "Id", minWidth: 50, flex: 1 },
     { field: "firstName", headerName: "First Name", minWidth: 120, flex: 1 },
     { field: "lastName", headerName: "Last Name", minWidth: 120, flex: 1 },
     {
@@ -55,7 +56,7 @@ const Table = () => {
 
   let rows = data.map((obj, id) => {
     return {
-      id: id,
+      id: (id = undefined ? nanoid() : id),
       firstName: obj.identity.firstName,
       lastName: obj.identity.lastName,
       birthDay: obj.identity.birthDay,

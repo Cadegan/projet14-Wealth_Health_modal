@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { useDemoData } from "@mui/x-data-grid-generator";
+// import { useDemoData } from "@mui/x-data-grid-generator";
 import actionType from "../../slices/actionType";
 import { useDispatch, useSelector } from "react-redux";
 import MUIDataTable from "mui-datatables";
+import { format } from "date-fns";
+import { nanoid } from "nanoid";
 
 const Table = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ const Table = () => {
   console.log("**useSelector**", data);
 
   const columns = [
+    // { name: "id", label: "Id" },
     {
       name: "firstName",
       label: "First Name",
@@ -28,10 +31,18 @@ const Table = () => {
     {
       name: "birthDay",
       label: "Birth Day",
+      options: {
+        customBodyRender: (value) =>
+          value ? format(new Date(value), `yyyy-LL-dd`) : "N/A",
+      },
     },
     {
       name: "startDate",
       label: "Start Date",
+      options: {
+        customBodyRender: (value) =>
+          value ? format(new Date(value), `yyyy-LL-dd`) : "N/A",
+      },
     },
     { name: "street", label: "Street" },
     { name: "city", label: "City" },
@@ -49,7 +60,7 @@ const Table = () => {
 
   let rows = data.map((obj, id) => {
     return {
-      id: id,
+      id: (id = undefined ? nanoid() : id),
       firstName: obj.identity.firstName,
       lastName: obj.identity.lastName,
       birthDay: obj.identity.birthDay,
