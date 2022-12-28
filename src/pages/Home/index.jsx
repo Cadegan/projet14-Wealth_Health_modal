@@ -15,7 +15,7 @@ import { makeStyles } from "@material-ui/core";
 import moment from "moment";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
-import { employeeAction } from "../../slices/employeeSlice";
+import { employeeSlice } from "../../slices/employeeSlice";
 
 import initialEmployeeList from "../../dataMoked.json";
 
@@ -64,7 +64,7 @@ export default function Home() {
 
   // /* onSubmit V2 */
   // const onSubmit = (data) => {
-  //   dispatch(employeeAction.addEmployee({ ...data }));
+  //   dispatch(employeeSlice(data));
   //   setShowModal(true);
   //   reset();
   // };

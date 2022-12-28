@@ -17,8 +17,10 @@ const Table = () => {
   // });
   // console.log("**dispatch**", tableData);
 
-  let data = useSelector((state) => state.employee.employeesArray);
+  const data = useSelector((state) => state.employee.employeesArray);
   console.log("**useSelector**", data);
+
+  // useEffect(() => {});
 
   const columns = [
     // { field: "id", headerName: "Id", minWidth: 50, flex: 1 },

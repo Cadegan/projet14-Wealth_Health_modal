@@ -18,19 +18,19 @@ export const employeeSlice = createSlice({
   reducers: {
     addEmployee: (state, action) => {
       /* v1 */
-      //  state.employeesArray.push(action.payload);
+      state.employeesArray.push(action.payload);
 
       /* v2 */
-      return [...state, action.payload];
+      // return [...state, action.payload];
     },
-    prepare: (payload) => {
-      return {
-        payload: {
-          // id: nanoid(),
-          ...payload,
-        },
-      };
-    },
+    // prepare: (payload) => {
+    //   return {
+    //     payload: {
+    //       // id: nanoid(),
+    //       ...payload,
+    //     },
+    //   };
+    // },
   },
 });
 
