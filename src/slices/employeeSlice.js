@@ -1,8 +1,4 @@
-import {
-  createSlice,
-  // ,nanoid
-} from "@reduxjs/toolkit";
-// import actionType from "../slices/actionType";
+import { createSlice } from "@reduxjs/toolkit";
 import initialEmployeeList from "../dataMoked.json";
 
 /* V3 */
@@ -17,20 +13,8 @@ export const employeeSlice = createSlice({
   initialState,
   reducers: {
     addEmployee: (state, action) => {
-      /* v1 */
       state.employeesArray.push(action.payload);
-
-      /* v2 */
-      // return [...state, action.payload];
     },
-    // prepare: (payload) => {
-    //   return {
-    //     payload: {
-    //       // id: nanoid(),
-    //       ...payload,
-    //     },
-    //   };
-    // },
   },
 });
 

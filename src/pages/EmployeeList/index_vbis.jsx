@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+// import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 // import { useDemoData } from "@mui/x-data-grid-generator";
-import actionType from "../../slices/actionType";
-import { useDispatch, useSelector } from "react-redux";
+// import actionType from "../../slices/actionType";
+import { useSelector } from "react-redux";
 import MUIDataTable from "mui-datatables";
 import { format } from "date-fns";
 import { nanoid } from "nanoid";
 
 const Table = () => {
-  const dispatch = useDispatch();
-  const [tableData, setTableDate] = useState([]);
-  const [pageSize, setPageSize] = useState(10);
+  // const dispatch = useDispatch();
+  // const [tableData, setTableDate] = useState([]);
+  // const [pageSize, setPageSize] = useState(10);
 
   let data = useSelector((state) => state.employee.employeesArray);
   console.log("**useSelector**", data);

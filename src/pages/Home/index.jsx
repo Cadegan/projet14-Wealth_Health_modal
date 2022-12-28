@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
 import {
-  useEffect,
+  // useEffect,
   useState,
-  // useEffect
 } from "react";
 
 import Calendar from "../../components/Calendar";
@@ -15,7 +14,10 @@ import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";
 import Button from "@mui/material/Button";
-import { useDispatch, useSelector } from "react-redux";
+import {
+  useDispatch,
+  // useSelector
+} from "react-redux";
 import { addEmployee } from "../../slices/employeeSlice";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,10 +31,9 @@ export default function Home() {
   const classes = useStyles();
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.employee.employeesArray);
+  // const data = useSelector((state) => state.employee.employeesArray);
 
   const {
-    // register,
     handleSubmit,
     reset,
     control,
@@ -42,10 +43,10 @@ export default function Home() {
     mode: "onChange",
   });
 
-  useEffect(() => {
-    localStorage.setItem("employees", JSON.stringify(data), [data]);
-    // console.log("Alredy Registered employees", data);
-  });
+  // useEffect(() => {
+  //   localStorage.setItem("employees", JSON.stringify(data), [data]);
+  //   // console.log("Registered employees", data);
+  // });
 
   // /* onSubmit V1 */
   // const onSubmit = (data) => {

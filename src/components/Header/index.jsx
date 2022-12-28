@@ -133,7 +133,7 @@ function ResponsiveAppBar() {
                     py: 4,
                   }}
                 />
-                <Tab
+                {/* <Tab
                   label="View Current Employees"
                   component={Link}
                   to="/employee-list-bis"
@@ -142,7 +142,7 @@ function ResponsiveAppBar() {
                     display: "block",
                     py: 4,
                   }}
-                />
+                /> */}
               </Tabs>
             </Box>
           </Box>

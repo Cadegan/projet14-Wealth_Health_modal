@@ -12,13 +12,13 @@ const Table = () => {
   const [tableData, setTableDate] = useState([]);
   const [pageSize, setPageSize] = useState(10);
 
-  // useEffect(() => {
-  //   dispatch(actionType.getEmployeeList);
-  // });
-  // console.log("**dispatch**", tableData);
+  useEffect(() => {
+    localStorage.setItem("employees", JSON.stringify(data), []);
+    // console.log("Registered employees", data);
+  });
 
   const data = useSelector((state) => state.employee.employeesArray);
-  console.log("**useSelector**", data);
+  // console.log("**useSelector**", data);
 
   const columns = [
     // { field: "id", headerName: "Id", minWidth: 50, flex: 1 },
@@ -28,7 +28,7 @@ const Table = () => {
       field: "birthDay",
       headerName: "Birth Day",
       renderCell: ({ value }) =>
-        value ? format(new Date(value), `yyyy-LL-dd`) : "N/A",
+        value ? format(new Date(value), `LL/dd/yyyy`) : "N/A",
       type: "date",
       minWidth: 110,
       flex: 1,
@@ -37,7 +37,7 @@ const Table = () => {
       field: "startDate",
       headerName: "Start Date",
       renderCell: ({ value }) =>
-        value ? format(new Date(value), `yyyy-LL-dd`) : "N/A",
+        value ? format(new Date(value), `LL/dd/yyyy`) : "N/A",
       type: "date",
       minWidth: 110,
       flex: 1,
