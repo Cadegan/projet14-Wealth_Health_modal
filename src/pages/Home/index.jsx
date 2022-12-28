@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import {
+  useEffect,
   useState,
   // useEffect
 } from "react";
@@ -14,10 +15,8 @@ import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";
 import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
-import { employeeSlice } from "../../slices/employeeSlice";
-
-import initialEmployeeList from "../../dataMoked.json";
+import { useDispatch, useSelector } from "react-redux";
+import { addEmployee } from "../../slices/employeeSlice";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -27,11 +26,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Home() {
-  const [showModal, setShowModal] = useState(false);
-
   const classes = useStyles();
-
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.employee.employeesArray);
 
   const {
     // register,
@@ -44,50 +42,39 @@ export default function Home() {
     mode: "onChange",
   });
 
-  /* onSubmit V1 */
-  const onSubmit = (data) => {
-    /* This is a ternary operator. It is saying if there is something in localStorage, then parse it
-    and set it to employees. If there is nothing in localStorage, then set employees to an empty
-    array. */
-    const employees = JSON.parse(localStorage.getItem("employees")) || [
-      ...initialEmployeeList,
-    ];
-    /* Pushing the data into the employees array. */
-    employees.push(data);
-    /* Setting the employees array to localStorage. */
-    localStorage.setItem("employees", JSON.stringify(employees));
-    setShowModal(true);
-    reset();
+  useEffect(() => {
+    localStorage.setItem("employees", JSON.stringify(data), [data]);
+    // console.log("Alredy Registered employees", data);
+  });
 
-    console.log("Submit result", employees);
-  };
-
-  // /* onSubmit V2 */
+  // /* onSubmit V1 */
   // const onSubmit = (data) => {
-  //   dispatch(employeeSlice(data));
-  //   setShowModal(true);
-  //   reset();
-  // };
-
-  // const [data, setData] = useState(null);
-
-  // useEffect(() => {
   //   /* This is a ternary operator. It is saying if there is something in localStorage, then parse it
   //   and set it to employees. If there is nothing in localStorage, then set employees to an empty
   //   array. */
-  //   const employees = JSON.parse(localStorage.getItem("employees")) || [];
+  //   const employees = JSON.parse(localStorage.getItem("employees")) || [
+  //     ...initialEmployeeList,
+  //   ];
+  //   /* Pushing the data into the employees array. */
   //   employees.push(data);
+  //   /* Setting the employees array to localStorage. */
   //   localStorage.setItem("employees", JSON.stringify(employees));
-  //   console.log("ok");
-  // });
+  //   setShowModal(true);
+  //   reset();
+
+  //   console.log("Submit result", employees);
+  // };
+
+  /* onSubmit V2 */
+  const onSubmit = (data) => {
+    dispatch(addEmployee(data));
+    setShowModal(true);
+    reset();
+  };
 
   return (
     <>
-      {/* <Header></Header> */}
-
       <div className="container">
-        {/* <a href="employee-list.html">View Current Employees</a>
-        <h2>Create Employee</h2> */}
         <form
           className={classes.pageContent}
           id="create-employee"
@@ -107,8 +94,6 @@ export default function Home() {
               />
             </Grid>
             <Grid item xs={4}>
-              {/* <section> */}
-              {/* V1 */}
               <Calendar
                 control={control}
                 name="birthDay"
@@ -117,11 +102,8 @@ export default function Home() {
               />
 
               <Calendar control={control} name="startDate" label="Start Date" />
-
-              {/* </section> */}
             </Grid>
             <Grid item xs={6}>
-              {/* <section className="AddressSection"> */}
               <p>Address</p>
               <Address
                 control={control}
@@ -146,7 +128,7 @@ export default function Home() {
                 label="City"
               />
               <States control={control} label="States"></States>
-              {/* </section> */}
+
               <Address
                 control={control}
                 controllerPattern={/^(?!.* {2})[_0-9_ -]*((-|\s)*[_0-9_ -])*$/g}
@@ -168,7 +150,6 @@ export default function Home() {
           >
             Save
           </Button>
-          {/* <button onClick={() => setShowModal(true)}>Modal</button> */}
         </form>
         <Modal
           openModal={showModal}
