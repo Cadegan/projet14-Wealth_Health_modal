@@ -3,8 +3,11 @@ import { Controller } from "react-hook-form";
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
 
-const CalendarTest = ({ control, name, label, maxDate }) => {
+const Calendar = ({ control, name, label, maxDate }) => {
   return (
     <div className={`${name}`}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
@@ -29,7 +32,7 @@ const CalendarTest = ({ control, name, label, maxDate }) => {
               value={value}
               label={`${label} *`}
               autoComplete={name}
-              inputFormat="MM/DD/yyyy"
+              inputFormat="MM/DD/YYYY"
               inputVariant="outlined"
               onChange={onChange}
               KeyboardButtonProps={{
@@ -54,4 +57,4 @@ const CalendarTest = ({ control, name, label, maxDate }) => {
     </div>
   );
 };
-export default CalendarTest;
+export default Calendar;

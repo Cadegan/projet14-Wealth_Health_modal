@@ -69,6 +69,7 @@ export default function Home() {
   /* onSubmit V2 */
   const onSubmit = (data) => {
     dispatch(addEmployee(data));
+    // console.log("Submit result", data);
     setShowModal(true);
     reset();
   };
