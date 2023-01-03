@@ -13,7 +13,10 @@
 }
 
 .modalWrapper {
-    // display: flex;// flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    // flex-direction: column;
     padding: 16px 20px;
     width: 300px;
     margin: auto;
@@ -28,4 +31,19 @@
 
 .closeModalBnt {
     cursor: pointer;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    // background-color: #ca2a2a;
+    background-color: #93AD15;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+
+
+    &:hover {
+        background-color: darken(#93AD15, 10%);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.35);
+    }
 }

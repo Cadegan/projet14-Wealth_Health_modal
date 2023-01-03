@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import cross from "./assets/cross.svg";
 
 const Modal = ({ openModal, closeModal, message }) => {
   /* This is a hook that is used to detect if the modal is open or not. If it is open, it will add a
@@ -18,12 +19,12 @@ const Modal = ({ openModal, closeModal, message }) => {
           e.stopPropagation();
         }}
       >
-        <div className="closeModalBnt" onClick={closeModal}>
-          X
-        </div>
         <div className="modalContent">
           <span>{message}</span>
         </div>
+        <button className="closeModalBnt" onClick={closeModal}>
+          <img src={cross} className="crossImage" alt="cross"></img>
+        </button>
       </div>
     </div>
   );
