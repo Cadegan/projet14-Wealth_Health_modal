@@ -110,9 +110,9 @@ export default function Home() {
               <Address
                 control={control}
                 controllerPattern={
-                  /^(?!.* {2})[A-zÀ-ž0-9_ -']*((-|\s)*[A-zÀ-ž0-9_ -'])*$/g
+                  /^(?!.* {2})[A-zÀ-ž0-9_ -.,#']*((-|\s)*[A-zÀ-ž0-9_ -.,#'])*$/g
                 }
-                inputPropsPattern="(?!.* {2})[A-zÀ-ž0-9_ -']{2,50}"
+                inputPropsPattern="(?!.* {2})[A-zÀ-ž0-9_ -.,#']*((-|\s)*[A-zÀ-ž0-9_ -.,#']){2,50}"
                 minLength="2"
                 maxLength="50"
                 name="street"
@@ -121,9 +121,9 @@ export default function Home() {
               <Address
                 control={control}
                 controllerPattern={
-                  /^(?!.* {2})[A-zÀ-ž_ -']*((-|\s)*[A-zÀ-ž_ -'])*$/g
+                  /^(?!.* {2})[A-zÀ-ž_ -.,#']*((-|\s)*[A-zÀ-ž_ -.,#'])*$/g
                 }
-                inputPropsPattern="(?!.* {2})[A-zÀ-ž_ -']{2,50}"
+                inputPropsPattern="(?!.* {2})[A-zÀ-ž_ -.,#']*((-|\s)*[A-zÀ-ž_ -.,#']){2,50}"
                 minLength="2"
                 maxLength="50"
                 name="city"
