@@ -7134,7 +7134,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==
 
-lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.7.0:
+lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.7.0, lodash@latest:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -8451,6 +8451,14 @@ proxy-from-env@^1.1.0:
   resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
   integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
+prune@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/prune/-/prune-0.0.2.tgz#ca67859be0381f0ea4296db36ec7009fe55c28af"
+  integrity sha512-5ZDNTaYgyOElBdXH5kRWFvyrAj2yHkuR32g9lBftm0SjC3xaq9tU30Ft6TOMHDrQJKGeTtMzPt+KKF85qOOJbg==
+  dependencies:
+    lodash latest
+    sproutid latest
+
 psl@^1.1.33:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.9.0.tgz#d0df2a137f00794565fcaf3b2c00cd09f8d5a5a7"
@@ -9408,6 +9416,13 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
+
+sproutid@latest:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/sproutid/-/sproutid-0.0.5.tgz#714491833847d3a792ccef2ca5a06535fa1c5165"
+  integrity sha512-b4ToovLPYmdRzfvFhNS8DoHmv+TTW0AebcipzsrTcrHE8WMG3eGlDIJn584bXK95CbCktGQazNSA39Y9qgTDyA==
+  dependencies:
+    lodash latest
 
 stable@^0.1.8:
   version "0.1.8"

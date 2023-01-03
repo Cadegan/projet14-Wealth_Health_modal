@@ -21,6 +21,7 @@ import {
 } from "@mui/icons-material";
 import { Toolbar, IconButton, Tabs, Tab } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const drawerOption = [
   {
@@ -46,7 +47,16 @@ const drawerOption = [
 function ResponsiveAppBar() {
   const [open, setOpen] = useState(false);
   const [tabValue, setTabValue] = useState(0);
-  // const location = useLocation();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Set tabValue to current address
+    if (location.pathname === "/") {
+      setTabValue(0);
+    } else if (location.pathname === "/employee-list") {
+      setTabValue(1);
+    }
+  }, [location.pathname]);
 
   const getList = () => (
     <div style={{ width: 270 }} onClick={() => setOpen(false)}>
@@ -133,16 +143,6 @@ function ResponsiveAppBar() {
                     py: 4,
                   }}
                 />
-                {/* <Tab
-                  label="View Current Employees"
-                  component={Link}
-                  to="/employee-list-bis"
-                  sx={{
-                    color: "#4C6306",
-                    display: "block",
-                    py: 4,
-                  }}
-                /> */}
               </Tabs>
             </Box>
           </Box>
