@@ -102,6 +102,9 @@ function ResponsiveAppBar() {
             </Box>
 
             <Typography
+              component={Link}
+              label="Home"
+              to="/"
               variant="h6"
               noWrap
               sx={{
