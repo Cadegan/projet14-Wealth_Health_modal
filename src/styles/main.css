@@ -87,7 +87,7 @@ body {
 }
 .closeModalBnt:hover {
   background-color: #6c800f;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 
 .MuiPickersToolbar-penIconButton {

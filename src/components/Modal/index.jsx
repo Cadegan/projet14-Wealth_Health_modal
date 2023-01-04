@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 import cross from "./assets/cross.svg";
 
 const Modal = ({ openModal, closeModal, message }) => {
@@ -28,6 +29,12 @@ const Modal = ({ openModal, closeModal, message }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  openModal: PropTypes.bool,
+  closeModal: PropTypes.func,
+  message: PropTypes.string,
 };
 
 export default Modal;

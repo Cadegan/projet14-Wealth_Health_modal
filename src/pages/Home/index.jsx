@@ -1,8 +1,5 @@
 import { useForm } from "react-hook-form";
-import {
-  // useEffect,
-  useState,
-} from "react";
+import { useState } from "react";
 
 import Calendar from "../../components/Calendar";
 import States from "../../components/States";
@@ -14,10 +11,7 @@ import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";
 import Button from "@mui/material/Button";
-import {
-  useDispatch,
-  // useSelector
-} from "react-redux";
+import { useDispatch } from "react-redux";
 import { addEmployee } from "../../slices/employeeSlice";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +25,6 @@ export default function Home() {
   const classes = useStyles();
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
-  // const data = useSelector((state) => state.employee.employeesArray);
 
   const {
     handleSubmit,
@@ -42,29 +35,6 @@ export default function Home() {
     criteriaMode: "all",
     mode: "onChange",
   });
-
-  // useEffect(() => {
-  //   localStorage.setItem("employees", JSON.stringify(data), [data]);
-  //   // console.log("Registered employees", data);
-  // });
-
-  // /* onSubmit V1 */
-  // const onSubmit = (data) => {
-  //   /* This is a ternary operator. It is saying if there is something in localStorage, then parse it
-  //   and set it to employees. If there is nothing in localStorage, then set employees to an empty
-  //   array. */
-  //   const employees = JSON.parse(localStorage.getItem("employees")) || [
-  //     ...initialEmployeeList,
-  //   ];
-  //   /* Pushing the data into the employees array. */
-  //   employees.push(data);
-  //   /* Setting the employees array to localStorage. */
-  //   localStorage.setItem("employees", JSON.stringify(employees));
-  //   setShowModal(true);
-  //   reset();
-
-  //   console.log("Submit result", employees);
-  // };
 
   /* onSubmit V2 */
   const onSubmit = (data) => {

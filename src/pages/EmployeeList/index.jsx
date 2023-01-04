@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
-import actionType from "../../slices/actionType";
-import { useDispatch, useSelector } from "react-redux";
+import {
+  // useDispatch,
+  useSelector,
+} from "react-redux";
 import { format } from "date-fns";
 import { nanoid } from "@reduxjs/toolkit";
 
 const Table = () => {
-  const dispatch = useDispatch();
-  const [tableData, setTableDate] = useState([]);
+  // const dispatch = useDispatch();
+  // const [tableData, setTableDate] = useState([]);
   const [pageSize, setPageSize] = useState(10);
 
   useEffect(() => {
