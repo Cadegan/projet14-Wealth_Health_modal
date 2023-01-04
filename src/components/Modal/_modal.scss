@@ -8,17 +8,13 @@
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(2px);
-
-
 }
 
 .modalWrapper {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    // flex-direction: column;
     padding: 16px 20px;
-    width: 300px;
     margin: auto;
     background-color: #fff;
     border-radius: 5px;
@@ -29,9 +25,14 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
+.modalContent {
+    margin-right: 15px;
+}
+
 .closeModalBnt {
     cursor: pointer;
     display: flex;
+    align-items: center;
     width: 30px;
     height: 30px;
     // background-color: #ca2a2a;
