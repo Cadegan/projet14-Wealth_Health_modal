@@ -13,6 +13,7 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
+  makeStyles,
 } from "@material-ui/core";
 import {
   HomeOutlined,
@@ -44,10 +45,33 @@ const drawerOption = [
   },
 ];
 
+const useStyles = makeStyles({
+  listItem: {
+    "&:hover": {
+      color: "#fefffd",
+      backgroundColor: "#758a11",
+      "& .MuiListItemIcon-root": {
+        color: "white",
+      },
+    },
+  },
+  tabs: {
+    "& .MuiTabs-indicator": {
+      backgroundColor: "#93AD15",
+      height: 3,
+    },
+    "& .MuiTab-root.Mui-selected": {
+      // backgroundColor: "green",
+      color: "#4C6306",
+    },
+  },
+});
+
 function ResponsiveAppBar() {
   const [open, setOpen] = useState(false);
   const [tabValue, setTabValue] = useState(0);
   const location = useLocation();
+  const classes = useStyles();
 
   useEffect(() => {
     // Set tabValue to current address
@@ -61,7 +85,13 @@ function ResponsiveAppBar() {
   const getList = () => (
     <div style={{ width: 270 }} onClick={() => setOpen(false)}>
       {drawerOption.map((item, index) => (
-        <ListItem component={Link} to={item.to} button key={index}>
+        <ListItem
+          className={classes.listItem}
+          component={Link}
+          to={item.to}
+          button
+          key={index}
+        >
           <ListItemIcon>{item.icon}</ListItemIcon>
           <ListItemText primary={item.name} />
         </ListItem>
@@ -123,6 +153,7 @@ function ResponsiveAppBar() {
             <Box>
               <Tabs
                 value={tabValue}
+                className={classes.tabs}
                 onChange={handleChange}
                 aria-label="Navigation"
               >
@@ -131,7 +162,7 @@ function ResponsiveAppBar() {
                   component={Link}
                   to="/"
                   sx={{
-                    color: "#4C6306",
+                    // color: "#4C6306",
                     display: "block",
                     py: 4,
                   }}
@@ -141,7 +172,7 @@ function ResponsiveAppBar() {
                   component={Link}
                   to="/employee-list"
                   sx={{
-                    color: "#4C6306",
+                    // color: "#4C6306",
                     display: "block",
                     py: 4,
                   }}
@@ -160,7 +191,7 @@ function ResponsiveAppBar() {
           >
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="Bar menu "
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={() => setOpen(true)}

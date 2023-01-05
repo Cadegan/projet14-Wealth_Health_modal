@@ -53,7 +53,7 @@ export default function Home() {
           onSubmit={handleSubmit(onSubmit)}
         >
           <Grid container spacing={2} justifyContent="center">
-            <Grid item xs={4}>
+            <Grid item md={4} xs={10}>
               <IdentityInput
                 control={control}
                 name="firstName"
@@ -65,7 +65,7 @@ export default function Home() {
                 label="Last name"
               />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item md={4} xs={10}>
               <Calendar
                 control={control}
                 name="birthDay"
@@ -75,7 +75,7 @@ export default function Home() {
 
               <Calendar control={control} name="startDate" label="Start Date" />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item md={8} xs={10}>
               <p>Address</p>
               <Address
                 control={control}
