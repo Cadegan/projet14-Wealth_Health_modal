@@ -65,6 +65,13 @@ const useStyles = makeStyles({
       color: "#4C6306",
     },
   },
+  drawerPaper: {
+    backgroundColor: "transparent",
+    backdropFilter: "blur(8px)",
+  },
+  backdrop: {
+    backgroundColor: "rgba(255, 255, 255, .40)",
+  },
 });
 
 function ResponsiveAppBar() {
@@ -204,6 +211,14 @@ function ResponsiveAppBar() {
               />
             </IconButton>
             <Drawer
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              BackdropProps={{
+                classes: {
+                  root: classes.backdrop,
+                },
+              }}
               variant="temporary"
               open={open}
               anchor={"left"}
