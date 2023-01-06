@@ -3,9 +3,6 @@ import { Controller } from "react-hook-form";
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
 
 const Calendar = ({ control, name, label, maxDate }) => {
   return (
@@ -46,6 +43,14 @@ const Calendar = ({ control, name, label, maxDate }) => {
                   fullWidth
                   color="primary"
                   {...params}
+                  sx={{
+                    ".MuiInputBase-root": {
+                      "&.Mui-focused fieldset": {
+                        borderLeftWidth: 6,
+                        padding: "4px !important",
+                      },
+                    },
+                  }}
                   error={invalid}
                   helperText={invalid ? error.message : " "}
                 ></TextField>

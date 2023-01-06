@@ -19,6 +19,14 @@ const Department = ({ control }) => {
         }}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <TextField
+            sx={{
+              ".MuiInputBase-root": {
+                "&.Mui-focused fieldset": {
+                  borderLeftWidth: 6,
+                  padding: "4px !important",
+                },
+              },
+            }}
             select
             fullWidth
             required={true}

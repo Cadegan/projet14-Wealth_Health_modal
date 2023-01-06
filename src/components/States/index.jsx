@@ -1,10 +1,31 @@
 import React from "react";
-import { TextField } from "@material-ui/core";
+import { makeStyles, TextField } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { Controller } from "react-hook-form";
 import { getStatesCollection } from "../../services/states";
+import { outlinedInputClasses } from "@mui/material/OutlinedInput";
+
+const useStyles = makeStyles({
+  autocompleteClass: {
+    [`& .${outlinedInputClasses.root}.${outlinedInputClasses.focused} .${outlinedInputClasses.notchedOutline}`]:
+      {
+        borderLeftWidth: 6,
+        padding: "4px !important",
+      },
+  },
+});
 
 const State = ({ control, label }) => {
+  const classes = useStyles();
+
+  /* Decomment here and the second option in Autocomplete to group names by their first letter */
+  // const options = getStatesCollection.map((option) => {
+  //   const firstLetter = option.name[0].toUpperCase();
+  //   return {
+  //     firstLetter,
+  //     ...option,
+  //   };
+  // });
   return (
     <div className="state">
       <Controller
@@ -20,11 +41,17 @@ const State = ({ control, label }) => {
         render={({ field, fieldState: { error } }) => (
           <Autocomplete
             options={getStatesCollection}
+            // options={options.sort(
+            //   (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
+            // )}
+            // groupBy={(option) => option.firstLetter}
             value={field.value || null}
             getOptionLabel={(option) => option.name}
             renderOption={(option) => <span>{option.name}</span>}
             renderInput={(params) => (
               <TextField
+                // style={{ backgroundColor: "pink" }}
+                className={classes.autocompleteClass}
                 {...params}
                 label={label}
                 variant="outlined"
@@ -33,7 +60,7 @@ const State = ({ control, label }) => {
                 helperText={error ? error.message : " "}
               ></TextField>
             )}
-            onChange={(_, data) => field.onChange(data)}
+            onChange={(_, value) => field.onChange(value)}
           ></Autocomplete>
         )}
       ></Controller>

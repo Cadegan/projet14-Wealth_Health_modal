@@ -57,7 +57,7 @@ const useStyles = makeStyles({
   },
   tabs: {
     "& .MuiTabs-indicator": {
-      backgroundColor: "#93AD15",
+      backgroundColor: "#4C6306",
       height: 3,
     },
     "& .MuiTab-root.Mui-selected": {
