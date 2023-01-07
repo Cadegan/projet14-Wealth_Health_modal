@@ -87,6 +87,9 @@ function ResponsiveAppBar() {
     } else if (location.pathname === "/employee-list") {
       setTabValue(1);
     }
+    // else {
+    //   setTabValue(null);
+    // }
   }, [location.pathname]);
 
   const getList = () => (

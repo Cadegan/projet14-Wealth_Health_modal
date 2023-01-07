@@ -1,25 +1,32 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Header from "../components/Header";
-import Home from "../pages/Home";
+// import Box from "@mui/material/Box";
+// import { LinearProgress } from "@material-ui/core";
 
-import Table from "../pages/EmployeeList";
-// import TableList from "../pages/EmployeeList/index_vbis";
-import Error from "../pages/Error";
-
+const Home = lazy(() => import("../pages/Home"));
+const Table = lazy(() => import("../pages/EmployeeList"));
+const Error = lazy(() => import("../pages/Error"));
 const theme = createMuiTheme();
 
 const Router = () => {
   return (
     <ThemeProvider theme={theme}>
       <Header></Header>
-      <Routes>
-        <Route exact path="/" element={<Home />}></Route>
-        <Route exact path="/employee-list" element={<Table />}></Route>
-        {/* <Route exact path="/employee-list-bis" element={<TableList />}></Route> */}
-        <Route exact path="*" element={<Error />}></Route>
-      </Routes>
+      <Suspense
+      // fallback={
+      //   <Box sx={{ width: "100%" }}>
+      //     <LinearProgress />
+      //   </Box>
+      // }
+      >
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/employee-list" element={<Table />}></Route>
+          <Route exact path="*" element={<Error />}></Route>
+        </Routes>
+      </Suspense>
     </ThemeProvider>
   );
 };
