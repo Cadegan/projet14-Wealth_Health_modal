@@ -13,17 +13,22 @@ const Modal = ({ openModal, closeModal, message }) => {
   if (!openModal) return null;
 
   return (
-    <div onClick={closeModal} className="modal">
+    <div onClick={closeModal} data-testid={"closeModal"} className="modal">
       <div
         className="modalWrapper"
+        data-testid={"modalWrapper"}
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
         <div className="modalContent">
-          <span>{message}</span>
+          <span data-testid={"message"}>{message}</span>
         </div>
-        <button className="closeModalBnt" onClick={closeModal}>
+        <button
+          className="closeModalBnt"
+          onClick={closeModal}
+          data-testid={"closeModalBnt"}
+        >
           <img src={cross} className="crossImage" alt="cross"></img>
         </button>
       </div>
