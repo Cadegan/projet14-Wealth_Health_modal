@@ -5,6 +5,7 @@ import Header from "../components/Header";
 // import Box from "@mui/material/Box";
 // import { LinearProgress } from "@material-ui/core";
 
+/* A way to load the component only when it is needed. */
 const Home = lazy(() => import("../pages/Home"));
 const Table = lazy(() => import("../pages/EmployeeList"));
 const Error = lazy(() => import("../pages/Error"));
