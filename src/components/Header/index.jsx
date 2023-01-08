@@ -5,20 +5,29 @@ import DesktopNav from "./header.desktop";
 import { Toolbar } from "@mui/material";
 import MobileNav from "./header.mobile";
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({
+  elevation = 0,
+  position = "relative",
+  bgcolor = "white",
+  borderBottom = 1,
+  borderColor = "grey.300",
+}) {
   return (
-    <AppBar
-      elevation={0}
-      position="relative"
-      sx={{ bgcolor: "white", borderBottom: 1, borderColor: "grey.300" }}
-    >
-      <Container sx={{ maxWidth: "xl" }} disableGutters>
-        <Toolbar disableGutters>
-          <DesktopNav />
-          <MobileNav />
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <React.Fragment>
+      <AppBar
+        elevation={elevation}
+        position={position}
+        sx={{ bgcolor, borderBottom, borderColor }}
+      >
+        <Container sx={{ maxWidth: "xl" }} disableGutters>
+          <Toolbar disableGutters>
+            <DesktopNav />
+            <MobileNav />
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </React.Fragment>
   );
 }
-export default ResponsiveAppBar;
+
+export default React.memo(ResponsiveAppBar);
