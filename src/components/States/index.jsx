@@ -54,6 +54,7 @@ const State = ({ control, label }) => {
                 className={classes.autocompleteClass}
                 {...params}
                 label={label}
+                aria-label={"states"}
                 variant="outlined"
                 required={true}
                 error={!!error}

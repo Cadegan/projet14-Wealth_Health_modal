@@ -39,6 +39,7 @@ const Calendar = ({ control, name, label, maxDate }) => {
                 // console.log(invalid),
                 <TextField
                   id="dateOfBirth"
+                  aria-label={name}
                   variant="outlined"
                   fullWidth
                   color="primary"

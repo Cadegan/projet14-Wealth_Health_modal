@@ -93,7 +93,7 @@ function MobileNav() {
       >
         <IconButton
           size="large"
-          aria-label="Bar menu "
+          aria-label="NavigationBar"
           aria-controls="menu-appbar"
           aria-haspopup="true"
           onClick={() => setOpen(true)}

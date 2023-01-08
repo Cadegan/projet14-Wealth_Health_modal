@@ -53,6 +53,7 @@ const IdentityInput = ({ control, name, label }) => {
             required={true}
             value={value}
             id={name}
+            aria-label={name}
             label={label}
             onChange={onChange}
             inputProps={{

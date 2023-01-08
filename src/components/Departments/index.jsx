@@ -34,6 +34,7 @@ const Department = ({ control }) => {
             value={value}
             id="department"
             label="Department"
+            aria-label="department"
             onChange={onChange}
             error={!!error}
             helperText={error ? error.message : " "}

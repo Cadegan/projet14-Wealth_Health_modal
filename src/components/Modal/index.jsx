@@ -23,7 +23,12 @@ const Modal = ({ openModal, closeModal, message }) => {
   if (!openModal) return null;
 
   return (
-    <div onClick={closeModal} data-testid={"closeModal"} className="modal">
+    <div
+      onClick={closeModal}
+      data-testid={"closeModal"}
+      className="modal"
+      aria-label="modal"
+    >
       <div
         className="modalWrapper"
         data-testid={"modalWrapper"}
@@ -36,6 +41,7 @@ const Modal = ({ openModal, closeModal, message }) => {
         </div>
         <button
           className="closeModalBnt"
+          aria-label="close modal button"
           onClick={closeModal}
           data-testid={"closeModalBnt"}
         >

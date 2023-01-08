@@ -87,7 +87,7 @@ function DesktopNav() {
             value={tabValue}
             className={classes.tabs}
             onChange={handleChange}
-            aria-label="Navigation"
+            aria-label="NavigationTab"
           >
             <Tab
               label="Create Employee"
