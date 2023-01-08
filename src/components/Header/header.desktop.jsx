@@ -21,21 +21,24 @@ const useStyles = makeStyles({
   },
 });
 
+const links = [
+  {
+    label: "Create Employee",
+    path: "/",
+  },
+  {
+    label: "View Current Employees",
+    path: "/employee-list",
+  },
+];
+
 function DesktopNav() {
   const [tabValue, setTabValue] = useState(0);
   const location = useLocation();
   const classes = useStyles();
 
   useEffect(() => {
-    // Set tabValue to current address
-    if (location.pathname === "/") {
-      setTabValue(0);
-    } else if (location.pathname === "/employee-list") {
-      setTabValue(1);
-    }
-    // else {
-    //   setTabValue(null);
-    // }
+    setTabValue(links.findIndex((link) => link.path === location.pathname));
   }, [location.pathname]);
 
   const handleChange = (event, newValue) => {
@@ -45,13 +48,14 @@ function DesktopNav() {
   return (
     <>
       <Box
+        aria-label="HRnet logo"
         sx={{
           flexGrow: 1,
           alignItems: "center",
           display: { xs: "none", md: "flex" },
         }}
       >
-        <Box component={Link} label="Home" to="/">
+        <Box component={Link} to="/">
           <Box
             component="img"
             sx={{
@@ -64,6 +68,7 @@ function DesktopNav() {
         </Box>
 
         <Typography
+          aria-label="HRnet"
           component={Link}
           label="Home"
           to="/"
