@@ -1,68 +1,73 @@
 import { Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
+import React from "react";
 
-const Address = ({
-  control,
-  controllerPattern,
-  inputPropsPattern,
-  minLength,
-  maxLength,
-  name,
-  label,
-}) => {
-  return (
-    <div className={`${name}`}>
-      <Controller
-        name={`address.${name}`}
-        control={control}
-        defaultValue={""}
-        rules={{
-          required: {
-            message: `${label} required`,
-            value: true,
-          },
-          pattern: {
-            value: controllerPattern,
-            message: "Special characters not allowed",
-          },
-          minLength: {
-            value: minLength,
-            message: `Please enter at least ${minLength} characters`,
-          },
-          maxLength: {
-            value: maxLength,
-            message: `Please enter less than ${maxLength} characters`,
-          },
-        }}
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <TextField
-            sx={{
-              // "& input:valid + fieldset": {
-              //   borderColor: "green",
-              //   borderWidth: 2,
-              // },
-              "& input:valid:focus + fieldset": {
-                borderLeftWidth: 6,
-                padding: "4px !important",
+const Address = React.memo(
+  ({
+    control,
+    controllerPattern,
+    inputPropsPattern,
+    minLength,
+    maxLength,
+    name,
+    label,
+  }) => {
+    return (
+      <React.Fragment>
+        <div className={`${name}`}>
+          <Controller
+            name={`address.${name}`}
+            control={control}
+            defaultValue={""}
+            rules={{
+              required: {
+                message: `${label} required`,
+                value: true,
+              },
+              pattern: {
+                value: controllerPattern,
+                message: "Special characters not allowed",
+              },
+              minLength: {
+                value: minLength,
+                message: `Please enter at least ${minLength} characters`,
+              },
+              maxLength: {
+                value: maxLength,
+                message: `Please enter less than ${maxLength} characters`,
               },
             }}
-            fullWidth
-            required={true}
-            value={value}
-            id={name}
-            aria-label={name}
-            label={label}
-            onChange={onChange}
-            inputProps={{
-              pattern: inputPropsPattern,
-            }}
-            error={!!error}
-            helperText={error ? error.message : " "}
+            render={({ field: { onChange, value }, fieldState: { error } }) => (
+              <TextField
+                sx={{
+                  // "& input:valid + fieldset": {
+                  //   borderColor: "green",
+                  //   borderWidth: 2,
+                  // },
+                  "& input:valid:focus + fieldset": {
+                    borderLeftWidth: 6,
+                    padding: "4px !important",
+                  },
+                }}
+                fullWidth
+                required={true}
+                value={value}
+                id={name}
+                aria-label={name}
+                label={label}
+                onChange={onChange}
+                inputProps={{
+                  pattern: inputPropsPattern,
+                }}
+                error={!!error}
+                helperText={error ? error.message : " "}
+              />
+            )}
           />
-        )}
-      />
-    </div>
-  );
-};
+        </div>
+      </React.Fragment>
+    );
+  }
+);
 
 export default Address;
