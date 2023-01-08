@@ -59,8 +59,9 @@ function DesktopNav() {
           <Box
             component="img"
             sx={{
-              mx: 1,
+              mx: 1.5,
               height: 65,
+              marginTop: 0.5,
             }}
             alt="HRnet logo"
             src={logo}

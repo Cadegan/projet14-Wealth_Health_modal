@@ -142,10 +142,11 @@ function MobileNav() {
             component="img"
             sx={{
               marginRight: 1.5,
+              marginTop: 0.6,
               height: 40,
             }}
-            alt="HRnet logo"
             src={logo}
+            alt="HRnet logo"
           />
         </Box>
       </Box>
