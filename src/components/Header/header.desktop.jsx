@@ -94,26 +94,18 @@ function DesktopNav() {
             onChange={handleChange}
             aria-label="NavigationTab"
           >
-            <Tab
-              label="Create Employee"
-              component={Link}
-              to="/"
-              sx={{
-                // color: "#4C6306",
-                display: "block",
-                py: 4,
-              }}
-            />
-            <Tab
-              label="View Current Employees"
-              component={Link}
-              to="/employee-list"
-              sx={{
-                // color: "#4C6306",
-                display: "block",
-                py: 4,
-              }}
-            />
+            {links.map(({ label, path }) => (
+              <Tab
+                key={label}
+                label={label}
+                component={Link}
+                to={path}
+                sx={{
+                  display: "block",
+                  py: 4,
+                }}
+              />
+            ))}
           </Tabs>
         </Box>
       </Box>
