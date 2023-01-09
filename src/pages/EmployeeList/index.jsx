@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
-import {
-  // useDispatch,
-  useSelector,
-} from "react-redux";
+import { useSelector } from "react-redux";
 import { format } from "date-fns";
 import { nanoid } from "@reduxjs/toolkit";
 import { useMemo } from "react";
@@ -75,17 +72,10 @@ const Table = () => {
     [data]
   );
 
-  // useEffect(() => {
-  //   localStorage.setItem("employees", JSON.stringify(data), []);
-  //   // console.log("Registered employees", data);
-  // });
-
   useEffect(() => {
-    const storedData = localStorage.getItem("employees");
-    if (!data && storedData) {
-      // dispatch action to set data in redux store
-    }
-  }, [data]);
+    localStorage.setItem("employees", JSON.stringify(data), []);
+    // console.log("Registered employees", data);
+  });
 
   return (
     <DataGrid
@@ -105,9 +95,7 @@ const Table = () => {
         borderColor: "grey.100",
         borderRadius: 2,
         fontWeight: 700,
-        // boxShadow: 9,
       }}
-      // {...data}
       components={{ Toolbar: GridToolbar }}
       componentsProps={{
         toolbar: {

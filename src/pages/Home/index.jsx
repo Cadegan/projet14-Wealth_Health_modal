@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import Calendar from "../../components/Calendar";
 import States from "../../components/States";
@@ -36,13 +36,15 @@ export default function Home() {
     mode: "onChange",
   });
 
-  /* onSubmit V2 */
-  const onSubmit = (data) => {
-    dispatch(addEmployee(data));
-    // console.log("Submit result", data);
-    setShowModal(true);
-    reset();
-  };
+  /* onSubmit V3 */
+  const onSubmit = useCallback(
+    (data) => {
+      dispatch(addEmployee(data));
+      setShowModal(true);
+      reset();
+    },
+    [dispatch, reset]
+  );
 
   return (
     <>
