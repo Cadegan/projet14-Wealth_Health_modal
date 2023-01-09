@@ -30,7 +30,6 @@ const Department = ({ control }) => {
             select
             fullWidth
             required={true}
-            // value={value || "select"}
             value={value}
             id="department"
             label="Department"
@@ -51,4 +50,4 @@ const Department = ({ control }) => {
   );
 };
 
-export default Department;
+export default React.memo(Department);
