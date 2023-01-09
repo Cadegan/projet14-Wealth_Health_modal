@@ -2,6 +2,18 @@ import { Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import React from "react";
 
+/**
+ * @description A form input for an address field.
+ *
+ * @param {Object} props.control - The control object from `react-hook-form`.
+ * @param {string} props.controllerPattern - The pattern to use for the `Controller`.
+ * @param {string} props.inputPropsPattern - The pattern to use for the `inputProps`.
+ * @param {number} props.minLength - The minimum length for the field.
+ * @param {number} props.maxLength - The maximum length for the field.
+ * @param {string} props.name - The name of the field.
+ * @param {string} props.label - The label for the field.
+ * @returns {React.Component} The rendered `Address` component.
+ */
 const Address = React.memo(
   ({
     control,

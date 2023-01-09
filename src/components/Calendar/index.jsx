@@ -3,6 +3,15 @@ import { Controller } from "react-hook-form";
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
 
+/**
+ * @description A calendar input for a form.
+ *
+ * @param {Object} props.control - The control object from `react-hook-form`.
+ * @param {string} props.name - The name of the field.
+ * @param {string} props.label - The label for the field.
+ * @param {Date} props.maxDate - The maximum date that can be selected.
+ * @returns {React.Component} The rendered `Calendar` component.
+ */
 const Calendar = ({ control, name, label, maxDate }) => {
   const AdapterMoment = useMemo(
     () => require("@mui/x-date-pickers/AdapterMoment").AdapterMoment,

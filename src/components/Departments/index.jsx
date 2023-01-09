@@ -4,6 +4,12 @@ import MenuItem from "@mui/material/MenuItem";
 import { Controller } from "react-hook-form";
 import { departmentCollection } from "../../services/departments";
 
+/**
+ * @description A form input for a department field.
+ *
+ * @param {Object} props.control - The control object from `react-hook-form`.
+ * @returns {React.Component} The rendered `Department` component.
+ */
 const Department = ({ control }) => {
   return (
     <div className="department">
