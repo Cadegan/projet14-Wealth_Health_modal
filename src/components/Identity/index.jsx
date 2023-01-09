@@ -1,5 +1,6 @@
 import { Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
+import React from "react";
 // import { styled } from "@mui/system";
 
 // const StyledTextField = styled(TextField)(({ theme }) => ({
@@ -68,4 +69,4 @@ const IdentityInput = ({ control, name, label }) => {
   );
 };
 
-export default IdentityInput;
+export default React.memo(IdentityInput);
