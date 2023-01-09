@@ -1,10 +1,14 @@
+import React, { useMemo } from "react";
 import { Controller } from "react-hook-form";
-
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
-import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 
 const Calendar = ({ control, name, label, maxDate }) => {
+  const AdapterMoment = useMemo(
+    () => require("@mui/x-date-pickers/AdapterMoment").AdapterMoment,
+    []
+  );
+
   return (
     <div className={`${name}`}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
@@ -23,7 +27,6 @@ const Calendar = ({ control, name, label, maxDate }) => {
             fieldState: { error, invalid },
           }) => (
             <MobileDatePicker
-              // showToolbar={false}
               maxDate={maxDate}
               required={true}
               value={value}
@@ -36,7 +39,6 @@ const Calendar = ({ control, name, label, maxDate }) => {
                 "aria-label": "change date",
               }}
               renderInput={(params) => (
-                // console.log(invalid),
                 <TextField
                   id="dateOfBirth"
                   aria-label={name}
@@ -63,4 +65,5 @@ const Calendar = ({ control, name, label, maxDate }) => {
     </div>
   );
 };
-export default Calendar;
+
+export default React.memo(Calendar);
