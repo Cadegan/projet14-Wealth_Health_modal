@@ -69,4 +69,4 @@ const State = ({ control, label }) => {
   );
 };
 
-export default State;
+export default React.memo(State);
