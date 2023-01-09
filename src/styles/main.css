@@ -83,14 +83,14 @@ body {
   align-items: center;
   width: 30px;
   height: 30px;
-  background-color: #93AD15;
+  background-color: #2e7d32;
   border: none;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 10px;
   transition: all 0.2s ease-in-out;
 }
 .closeModalBnt:hover {
-  background-color: #6c800f;
+  background-color: #205823;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 

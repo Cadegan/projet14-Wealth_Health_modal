@@ -8,69 +8,84 @@ import {
 } from "react-redux";
 import { format } from "date-fns";
 import { nanoid } from "@reduxjs/toolkit";
+import { useMemo } from "react";
+
+const columns = [
+  // { field: "id", headerName: "Id", minWidth: 50, flex: 1 },
+  { field: "firstName", headerName: "First Name", minWidth: 120, flex: 1 },
+  { field: "lastName", headerName: "Last Name", minWidth: 120, flex: 1 },
+  {
+    field: "birthDay",
+    headerName: "Birth Day",
+    renderCell: ({ value }) =>
+      value ? format(new Date(value), `LL/dd/yyyy`) : "N/A",
+    type: "date",
+    minWidth: 110,
+    flex: 1,
+  },
+  {
+    field: "startDate",
+    headerName: "Start Date",
+    renderCell: ({ value }) =>
+      value ? format(new Date(value), `LL/dd/yyyy`) : "N/A",
+    type: "date",
+    minWidth: 110,
+    flex: 1,
+  },
+  { field: "street", headerName: "Street", minWidth: 250, flex: 1 },
+  { field: "city", headerName: "City", minWidth: 120, flex: 1 },
+  { field: "name", headerName: "State", minWidth: 160, flex: 1 },
+  {
+    field: "zipCode",
+    headerName: "Zip Code",
+    minWidth: 100,
+    flex: 1,
+  },
+  { field: "department", headerName: "Department", minWidth: 150, flex: 1 },
+];
 
 const Table = () => {
-  // const dispatch = useDispatch();
-  // const [tableData, setTableDate] = useState([]);
   const [pageSize, setPageSize] = useState(10);
-
-  useEffect(() => {
-    localStorage.setItem("employees", JSON.stringify(data), []);
-    // console.log("Registered employees", data);
-  });
 
   const data = useSelector((state) => state.employee.employeesArray);
   // console.log("**useSelector**", data);
 
-  const columns = [
-    // { field: "id", headerName: "Id", minWidth: 50, flex: 1 },
-    { field: "firstName", headerName: "First Name", minWidth: 120, flex: 1 },
-    { field: "lastName", headerName: "Last Name", minWidth: 120, flex: 1 },
-    {
-      field: "birthDay",
-      headerName: "Birth Day",
-      renderCell: ({ value }) =>
-        value ? format(new Date(value), `LL/dd/yyyy`) : "N/A",
-      type: "date",
-      minWidth: 110,
-      flex: 1,
-    },
-    {
-      field: "startDate",
-      headerName: "Start Date",
-      renderCell: ({ value }) =>
-        value ? format(new Date(value), `LL/dd/yyyy`) : "N/A",
-      type: "date",
-      minWidth: 110,
-      flex: 1,
-    },
-    { field: "street", headerName: "Street", minWidth: 250, flex: 1 },
-    { field: "city", headerName: "City", minWidth: 120, flex: 1 },
-    { field: "name", headerName: "State", minWidth: 160, flex: 1 },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
-      minWidth: 100,
-      flex: 1,
-    },
-    { field: "department", headerName: "Department", minWidth: 150, flex: 1 },
-  ];
+  /**
+   * Returns an array of objects representing the rows of the table.
+   * The value is memoized with 'useMemo()' to avoid recalculating
+   * the array unless 'data' changes.
+   * @returns {Array} The array of rows.
+   */
+  const rows = useMemo(
+    () =>
+      data.map((obj, id) => ({
+        id:
+          /*If 'id' is undefined, a unique id is generated with nanoid() */
+          id || nanoid(),
+        firstName: obj.identity.firstName,
+        lastName: obj.identity.lastName,
+        birthDay: obj.identity.birthDay,
+        startDate: obj.identity.startDate,
+        street: obj.address.street,
+        city: obj.address.city,
+        zipCode: obj.address.zipCode,
+        name: obj.address.state.name,
+        department: obj.department,
+      })),
+    [data]
+  );
 
-  let rows = data.map((obj, id) => {
-    return {
-      id: (id = undefined ? nanoid() : id),
-      firstName: obj.identity.firstName,
-      lastName: obj.identity.lastName,
-      birthDay: obj.identity.birthDay,
-      startDate: obj.identity.startDate,
-      street: obj.address.street,
-      city: obj.address.city,
-      zipCode: obj.address.zipCode,
-      name: obj.address.state.name,
-      department: obj.department,
-    };
-  });
-  // console.log("**Rows loaded**", rows);
+  // useEffect(() => {
+  //   localStorage.setItem("employees", JSON.stringify(data), []);
+  //   // console.log("Registered employees", data);
+  // });
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("employees");
+    if (!data && storedData) {
+      // dispatch action to set data in redux store
+    }
+  }, [data]);
 
   return (
     <DataGrid
