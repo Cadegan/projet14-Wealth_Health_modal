@@ -57,6 +57,12 @@ const IdentityInput = ({ control, name, label }) => {
               "& input:valid:focus + fieldset": {
                 borderLeftWidth: 6,
                 padding: "4px !important",
+                transition: ".3s",
+              },
+              "& input:invalid:focus + fieldset": {
+                borderLeftWidth: 6,
+                padding: "4px !important",
+                transition: ".3s",
               },
             }}
             fullWidth

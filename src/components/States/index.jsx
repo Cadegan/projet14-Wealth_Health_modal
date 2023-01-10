@@ -11,6 +11,7 @@ const useStyles = makeStyles({
       {
         borderLeftWidth: 6,
         padding: "4px !important",
+        transition: ".3s",
       },
   },
 });

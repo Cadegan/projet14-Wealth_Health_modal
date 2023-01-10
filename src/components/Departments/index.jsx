@@ -31,6 +31,7 @@ const Department = ({ control }) => {
                 "&.Mui-focused fieldset": {
                   borderLeftWidth: 6,
                   padding: "4px !important",
+                  transition: ".3s",
                 },
               },
             }}
