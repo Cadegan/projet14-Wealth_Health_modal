@@ -4,7 +4,7 @@ import React from "react";
 import Modal from "./index";
 
 describe("Modal", () => {
-  it("calls useEffect with the correct arguments when openModal changes", () => {
+  test("calls useEffect with the correct arguments when openModal changes", () => {
     /* Spying on the useEffect hook. */
     const spy = jest.spyOn(React, "useEffect");
     /* Destructuring the `rerender` function from the `render` function. */
@@ -17,19 +17,19 @@ describe("Modal", () => {
     spy.mockRestore();
   });
 
-  it("returns null if openModal is false", () => {
+  test("returns null if openModal is false", () => {
     const { container } = render(<Modal openModal={false} />);
     expect(container).toBeEmptyDOMElement();
   });
 
-  it("renders the correct HTML content when openModal is true", () => {
+  test("renders the correct HTML content when openModal is true", () => {
     render(<Modal openModal={true} />);
     expect(screen.getByTestId("closeModal")).toBeInTheDocument();
     expect(screen.getByTestId("modalWrapper")).toBeInTheDocument();
     expect(screen.getByTestId("closeModalBnt")).toBeInTheDocument();
   });
 
-  it("calls closeModal when the user clicks the Close button or the modal background area", () => {
+  test("calls closeModal when the user clicks the Close button or the modal background area", () => {
     const closeModal = jest.fn();
     render(<Modal openModal={true} closeModal={closeModal} />);
     fireEvent.click(screen.getByTestId("closeModalBnt"));
@@ -38,7 +38,7 @@ describe("Modal", () => {
     expect(closeModal).toHaveBeenCalled();
   });
 
-  it("correctly displays the message", () => {
+  test("correctly displays the message", () => {
     const message = "This is a test message";
     render(<Modal openModal={true} message={message} />);
     expect(screen.getByTestId("message")).toHaveTextContent(message);
