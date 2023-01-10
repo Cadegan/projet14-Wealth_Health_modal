@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Departments/index.jsx</title>
+    <title>JSDoc: Source: components/Identity/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Departments/index.jsx</h1>
+    <h1 class="page-title">Source: components/Identity/index.jsx</h1>
 
     
 
@@ -26,65 +26,86 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
+            <pre class="prettyprint source linenums"><code>import { Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
-import { Controller } from "react-hook-form";
-import { departmentCollection } from "../../services/departments";
+import React from "react";
+// import { styled } from "@mui/system";
+
+// const StyledTextField = styled(TextField)(({ theme }) => ({
+//   // "&amp; input:valid + fieldset": {
+//   //   borderColor: "green",
+//   //   borderWidth: 2,
+//   // },
+//   "&amp; input:valid:focus + fieldset": {
+//     borderLeftWidth: 6,
+//     padding: "4px !important",
+//   },
+//   // "&amp; input:valid:hover + fieldset": {
+//   //   borderColor: "green",
+//   // },
+// }));
 
 /**
- * @description A form input for a department field.
+ * @description Input for identity
  *
- * @param {Object} props.control - The control object from `react-hook-form`.
- * @returns {React.Component} The rendered `Department` component.
+ * @param {Object} props.control - The control object from react-hook-form.
+ * @param {string} props.name - The name of the input field.
+ * @param {string} props.label - The label for the input field.
+ * @returns {React.Component} The IdentityInput component.
  */
-const Department = ({ control }) => {
+const IdentityInput = ({ control, name, label }) => {
   return (
-    &lt;div className="department">
+    &lt;div className={`${name}Section`}>
       &lt;Controller
-        name="department"
+        name={`identity.${name}`}
         control={control}
         defaultValue={""}
         rules={{
           required: {
-            message: "Required",
+            message: `${label} required`,
             value: true,
+          },
+          pattern: {
+            value: /^(?!.* {2})[A-zÀ-ž-' ]*((-|\s)*[A-zÀ-ž-' ])*$/g,
+            message: "Special characters not allowed",
+          },
+          minLength: {
+            value: 2,
+            message: "Please enter at least 2 characters",
+          },
+          maxLength: {
+            value: 50,
+            message: "Please enter less than 50 characters",
           },
         }}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           &lt;TextField
             sx={{
-              ".MuiInputBase-root": {
-                "&amp;.Mui-focused fieldset": {
-                  borderLeftWidth: 6,
-                  padding: "4px !important",
-                },
+              "&amp; input:valid:focus + fieldset": {
+                borderLeftWidth: 6,
+                padding: "4px !important",
               },
             }}
-            select
             fullWidth
             required={true}
             value={value}
-            id="department"
-            label="Department"
-            aria-label="department"
+            id={name}
+            aria-label={name}
+            label={label}
             onChange={onChange}
+            inputProps={{
+              pattern: "(?!.* {2})[A-zÀ-ž-' ]*((-|s)*[A-zÀ-ž-' ]){2,50}",
+            }}
             error={!!error}
             helperText={error ? error.message : " "}
-          >
-            {departmentCollection.map((option) => (
-              &lt;MenuItem key={option.value} value={option.value}>
-                {option.label}
-              &lt;/MenuItem>
-            ))}
-          &lt;/TextField>
+          />
         )}
-      >&lt;/Controller>
+      />
     &lt;/div>
   );
 };
 
-export default React.memo(Department);
+export default React.memo(IdentityInput);
 </code></pre>
         </article>
     </section>

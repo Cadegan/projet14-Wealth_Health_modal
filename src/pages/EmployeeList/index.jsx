@@ -7,6 +7,11 @@ import { format } from "date-fns";
 import { nanoid } from "@reduxjs/toolkit";
 import { useMemo } from "react";
 
+/**
+ * @description Array of objects representing the columns of the table.
+ *
+ * @type {Array}
+ */
 const columns = [
   // { field: "id", headerName: "Id", minWidth: 50, flex: 1 },
   { field: "firstName", headerName: "First Name", minWidth: 120, flex: 1 },
@@ -41,6 +46,17 @@ const columns = [
   { field: "department", headerName: "Department", minWidth: 150, flex: 1 },
 ];
 
+/**
+ * @description Renders a table with rows of employee data.
+ *
+ * @param {Object} state - The current state of the application.
+ * @param {Array} state.employee.employeesArray - An array of employee objects.
+ * @param {Number} pageSize - The number of rows to display on each page.
+ * @param {function} setPageSize - A function to set the number of rows displayed per page.
+ * @param {Function} onPageSizeChange - A callback function to be called when the page size changes.
+ *
+ * @returns {React.Component} The rendered table.
+ */
 const Table = () => {
   const [pageSize, setPageSize] = useState(10);
 
@@ -48,9 +64,10 @@ const Table = () => {
   // console.log("**useSelector**", data);
 
   /**
-   * Returns an array of objects representing the rows of the table.
+   * @description Returns an array of objects representing the rows of the table.
    * The value is memoized with 'useMemo()' to avoid recalculating
    * the array unless 'data' changes.
+   * @param {Array} data - An array of employee objects.
    * @returns {Array} The array of rows.
    */
   const rows = useMemo(

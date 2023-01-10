@@ -15,6 +15,13 @@ const useStyles = makeStyles({
   },
 });
 
+/**
+ * @description A component for selecting a state from a list of options.
+ *
+ * @param {Object} props.control - The control object provided by react-hook-form.
+ * @param {string} props.label - The label to display above the input field.
+ * @returns {React.Component} The rendered `States` component
+ */
 const State = ({ control, label }) => {
   const classes = useStyles();
 

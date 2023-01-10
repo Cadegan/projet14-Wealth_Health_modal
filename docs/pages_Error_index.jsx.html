@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: pages/Error/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,36 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: pages/Error/index.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Link } from "react-router-dom";
 
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+/**
+ *@description Renders an error message for a 404 page not found error.
+ *
+ *@returns {React.Component} The rendered error message.
+ */
+export default function Error() {
+  return (
+    &lt;div className="main errorMessage">
+      &lt;h1>Error 404&lt;/h1>
+      &lt;h2>Page not found&lt;/h2>
+      &lt;Link className="homePage-link" to="/">
+        Go back to the home page
+      &lt;/Link>
+    &lt;/div>
+  );
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

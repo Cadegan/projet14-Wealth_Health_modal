@@ -59,12 +59,6 @@ function DesktopNav() {
     setTabValue(links.findIndex((link) => link.path === location.pathname));
   }, [location.pathname]);
 
-  /**
-   * @description Handles the change event emitted by the tabs component when the selected tab changes.
-   *
-   * @param {React.ChangeEvent<{}>} event - The change event emitted by the tabs component.
-   * @param {number} newValue - The new value of the selected tab.
-   */
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
   };
