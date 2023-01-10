@@ -7,6 +7,7 @@ import { departmentCollection } from "../../services/departments";
 /**
  * @description A form input for a department field.
  *
+ * @param {Object} props - The props for the component.
  * @param {Object} props.control - The control object from `react-hook-form`.
  * @returns {React.Component} The rendered `Department` component.
  */

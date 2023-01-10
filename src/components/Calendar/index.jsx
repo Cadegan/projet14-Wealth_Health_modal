@@ -6,6 +6,7 @@ import { TextField } from "@mui/material";
 /**
  * @description A calendar input for a form.
  *
+ * @param {Object} props - The props for the component.
  * @param {Object} props.control - The control object from `react-hook-form`.
  * @param {string} props.name - The name of the field.
  * @param {string} props.label - The label for the field.

@@ -20,6 +20,7 @@ import React from "react";
 /**
  * @description Input for identity
  *
+ * @param {Object} props - The props for the component.
  * @param {Object} props.control - The control object from react-hook-form.
  * @param {string} props.name - The name of the input field.
  * @param {string} props.label - The label for the input field.

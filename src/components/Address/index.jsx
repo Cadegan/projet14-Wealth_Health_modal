@@ -5,6 +5,7 @@ import React from "react";
 /**
  * @description A form input for an address field.
  *
+ * @param {Object} props - The props for the component.
  * @param {Object} props.control - The control object from `react-hook-form`.
  * @param {string} props.controllerPattern - The pattern to use for the `Controller`.
  * @param {string} props.inputPropsPattern - The pattern to use for the `inputProps`.

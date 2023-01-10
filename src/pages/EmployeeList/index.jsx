@@ -51,9 +51,10 @@ const columns = [
  *
  * @param {Object} state - The current state of the application.
  * @param {Array} state.employee.employeesArray - An array of employee objects.
- * @param {Number} pageSize - The number of rows to display on each page.
- * @param {function} setPageSize - A function to set the number of rows displayed per page.
- * @param {Function} onPageSizeChange - A callback function to be called when the page size changes.
+ * @param {Object} options - The options object for the table.
+ * @param {Number} options.pageSize - The number of rows to display on each page.
+ * @param {function} options.setPageSize - A function to set the number of rows displayed per page.
+ * @param {Function} options.onPageSizeChange - A callback function to be called when the page size changes.
  *
  * @returns {React.Component} The rendered table.
  */
