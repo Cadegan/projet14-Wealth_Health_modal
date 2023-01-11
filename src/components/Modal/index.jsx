@@ -5,7 +5,7 @@ import cross from "./assets/cross.svg";
 /**
  * @description Modal component that displays a message in a modal window.
  *
- * @param {Object} props - The component props.
+ * @param {Object} props - The props for the component.
  * @param {boolean} props.openModal - Flag indicating whether the modal is open or not.
  * @param {Function} props.closeModal - Function to close the modal.
  * @param {string} props.message - The message to display in the modal.

@@ -18,7 +18,6 @@ const useStyles = makeStyles({
       height: 3,
     },
     "& .MuiTab-root.Mui-selected": {
-      // backgroundColor: "green",
       color: "#4C6306",
     },
   },
@@ -55,6 +54,9 @@ function DesktopNav() {
   const location = useLocation();
   const classes = useStyles();
 
+  /* A hook that is called after every render. It compares the current location pathname to the
+  pathname of each link in the links array. If there is a match, it sets the tabValue to the index
+  of the link. */
   useEffect(() => {
     setTabValue(links.findIndex((link) => link.path === location.pathname));
   }, [location.pathname]);
@@ -85,7 +87,6 @@ function DesktopNav() {
             src={logo}
           />
         </Box>
-
         <Typography
           aria-label="HRnet"
           component={Link}

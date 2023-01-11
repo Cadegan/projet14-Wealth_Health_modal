@@ -84,7 +84,6 @@ function MobileNav() {
   /**
    * @description Renders a list of items for the mobile navigation menu.
    *
-   * @param {Object[]} drawerOption - An array of objects representing the options for the mobile navigation menu.
    * @returns {React.Component} The rendered list of items for the mobile navigation menu.
    */
   const getList = () => (

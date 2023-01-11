@@ -1,29 +1,14 @@
 import { Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import React from "react";
-// import { styled } from "@mui/system";
-
-// const StyledTextField = styled(TextField)(({ theme }) => ({
-//   // "& input:valid + fieldset": {
-//   //   borderColor: "green",
-//   //   borderWidth: 2,
-//   // },
-//   "& input:valid:focus + fieldset": {
-//     borderLeftWidth: 6,
-//     padding: "4px !important",
-//   },
-//   // "& input:valid:hover + fieldset": {
-//   //   borderColor: "green",
-//   // },
-// }));
 
 /**
  * @description Input for identity
  *
  * @param {Object} props - The props for the component.
- * @param {Object} props.control - The control object from react-hook-form.
- * @param {string} props.name - The name of the input field.
- * @param {string} props.label - The label for the input field.
+ * @param {Object} props.control - The control object from `react-hook-form`.
+ * @param {string} props.name - The name of the field.
+ * @param {string} props.label - The label for the field.
  * @returns {React.Component} The IdentityInput component.
  */
 const IdentityInput = ({ control, name, label }) => {
