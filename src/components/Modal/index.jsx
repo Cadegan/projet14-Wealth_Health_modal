@@ -8,9 +8,9 @@ import cross from "./assets/cross.svg";
  * @param {Object} props - The props for the component.
  * @param {boolean} props.openModal - Flag indicating whether the modal is open or not.
  * @param {Function} props.closeModal - Function to close the modal.
- * @param {string} props.message - The message to display in the modal.
+ * @param {string} props.children - The message to display in the modal.
  */
-const Modal = ({ openModal, closeModal, message }) => {
+const Modal = ({ openModal, closeModal, children }) => {
   /**
    * @description This is a hook that is used to detect if the modal is open or not. If it is open, it will add a
    * style to the body of the document to hide the overflow. If it is not open, it will remove the
@@ -37,7 +37,7 @@ const Modal = ({ openModal, closeModal, message }) => {
         }}
       >
         <div className="modalContent">
-          <span data-testid={"message"}>{message}</span>
+          <span data-testid={"message"}>{children}</span>
         </div>
         <button
           className="closeModalBnt"
@@ -58,7 +58,7 @@ const Modal = ({ openModal, closeModal, message }) => {
 Modal.propTypes = {
   openModal: PropTypes.bool,
   closeModal: PropTypes.func,
-  message: PropTypes.string,
+  children: PropTypes.string,
 };
 
 export default Modal;

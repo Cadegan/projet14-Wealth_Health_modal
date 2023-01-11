@@ -125,11 +125,9 @@ export default function Home() {
             Save
           </Button>
         </form>
-        <Modal
-          openModal={showModal}
-          closeModal={() => setShowModal(false)}
-          message={"Employee has been created"}
-        ></Modal>
+        <Modal openModal={showModal} closeModal={() => setShowModal(false)}>
+          {"Employee has been created"}
+        </Modal>
       </div>
     </>
   );

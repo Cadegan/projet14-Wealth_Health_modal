@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+[![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)](http://forthebadge.com)
+[![SASS](https://img.shields.io/badge/Sass-hotpink.svg?style=for-the-badge&logo=sass&logoColor=white)](http://forthebadge.com)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
+![MUI](https://img.shields.io/static/v1?style=for-the-badge&message=MUI&color=007FFF&logo=MUI&logoColor=FFFFFF&label=)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Argent Bank - Personnal bank app
 
-## Available Scripts
+![Argent Bank](./src/components/Header/logo_HRnet.jpeg)
 
-In the project directory, you can run:
+Wealth Health is an application designed to manage employee files.
 
-### `npm start`
+## 1. Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Javascript
+- SASS
+- Mui
+- React
+- React Router
+- React Hook Form
+- Redux-toolkit
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2. Author
 
-### `npm test`
+- [Jean-Charles Maurice](https://github.com/Cadegan/)
+- Version : 1.0
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 3. Project
 
-### `npm run build`
+### 3.1 Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/) or [NPM](https://www.npmjs.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Please make sure you have the right versions and download both packages. You can verify this by using the following commands in your terminal:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Check Node.js version
+node --version
 
-### `npm run eject`
+# Check Yarn version
+yarn --version
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Check NPM version
+npm --version
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3.2 Installing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Fork the repository of Wealth Health :
+   [`git clone https://github.com/Cadegan/projet14-Wealth_Health.git`](https://github.com/Cadegan/projet14-Wealth_Health.git)
+1. Clone it on your computer.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Open a terminal window in the cloned project
+1. Run the following commands:
 
-## Learn More
+```bash
+# Install dependencies
+npm install or yarn
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Launch the application
+npm start or yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 4. Endpoints
 
-### Code Splitting
+### 4.1 Possible endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [`http://localhost:3000/`](http://localhost:3000/) - Display the form page for registering a new employee
+- [`http://localhost:3000/employee-list`](http://localhost:3000/employee-list) - Displays the list of employees

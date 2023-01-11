@@ -40,7 +40,7 @@ describe("Modal", () => {
 
   test("correctly displays the message", () => {
     const message = "This is a test message";
-    render(<Modal openModal={true} message={message} />);
+    render(<Modal openModal={true} children={message} />);
     expect(screen.getByTestId("message")).toHaveTextContent(message);
   });
 });
