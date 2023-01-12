@@ -109,13 +109,13 @@ function MobileNav() {
         sx={{
           flexGrow: 1,
           alignItems: "center",
+          justifyContent: "space-between",
           display: { xs: "flex", md: "none" },
         }}
       >
         <IconButton
           size="large"
-          aria-label="NavigationBar"
-          aria-controls="menu-appbar"
+          aria-label="menuAppbar"
           aria-haspopup="true"
           onClick={() => setOpen(true)}
           color="inherit"
@@ -148,7 +148,7 @@ function MobileNav() {
           noWrap
           component="a"
           sx={{
-            flexGrow: 1,
+            // flexGrow: 1,
             fontFamily: "monospace",
             fontWeight: 700,
             letterSpacing: ".3rem",
@@ -158,13 +158,14 @@ function MobileNav() {
         >
           HRnet
         </Typography>
-        <Box component={Link} label="Home" to="/">
+        <Box component={Link} label="HomeLinkLogo" to="/">
           <Box
             component="img"
             sx={{
               marginRight: 1.5,
               marginTop: 0.6,
-              height: 40,
+              width: "34.12px",
+              height: "40px",
             }}
             src={logo}
             alt="HRnet logo"

@@ -13,6 +13,7 @@ import moment from "moment";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../slices/employeeSlice";
+import "./home.css";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./error.css";
 
 /**
  *@description Renders an error message for a 404 page not found error.

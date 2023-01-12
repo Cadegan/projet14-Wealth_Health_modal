@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import cross from "./assets/cross.svg";
-
+import "./modal.css";
 /**
  * @description Modal component that displays a message in a modal window.
  *

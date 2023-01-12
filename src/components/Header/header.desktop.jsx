@@ -80,8 +80,9 @@ function DesktopNav() {
             component="img"
             sx={{
               mx: 1.5,
-              height: 65,
               marginTop: 0.5,
+              width: "55.45px",
+              height: "65px",
             }}
             alt="HRnet logo"
             src={logo}

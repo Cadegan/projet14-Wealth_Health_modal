@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { Controller } from "react-hook-form";
 import { LocalizationProvider, MobileDatePicker } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
+import "./calendar.css";
 
 /**
  * @description A calendar input for a form.
