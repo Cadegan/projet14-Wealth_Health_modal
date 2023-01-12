@@ -50,7 +50,7 @@ const Calendar = ({ control, name, label, maxDate }) => {
               }}
               renderInput={(params) => (
                 <TextField
-                  id="dateOfBirth"
+                  id={name}
                   aria-label={name}
                   variant="outlined"
                   fullWidth
