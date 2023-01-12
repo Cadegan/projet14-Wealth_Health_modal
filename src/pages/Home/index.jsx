@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
-import { useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import Calendar from "../../components/Calendar";
 import States from "../../components/States";
 import IdentityInput from "../../components/Identity";
 import Address from "../../components/Address";
 import Departments from "../../components/Departments";
-import Modal from "../../components/Modal";
+// import Modal from "../../components/Modal";
+import { Modal } from "cadegancode-reactmodal";
 import { Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import moment from "moment";

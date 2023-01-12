@@ -21,6 +21,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.1.3",
+    "cadegancode-reactmodal": "^1.0.4",
     "classnames": "^2.3.2",
     "date-fns": "2.15.0",
     "dayjs": "^1.11.6",
