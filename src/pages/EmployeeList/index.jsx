@@ -62,7 +62,6 @@ const Table = () => {
   const [pageSize, setPageSize] = useState(10);
 
   const data = useSelector((state) => state.employee.employeesArray);
-  // console.log("**useSelector**", data);
 
   /**
    * @description Returns an array of objects representing the rows of the table.
@@ -103,7 +102,6 @@ const Table = () => {
       onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
       rowsPerPageOptions={[10, 25, 50, 100]}
       pagination
-      // autoPageSize
       sx={{
         p: 1,
         m: 2,

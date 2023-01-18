@@ -2,8 +2,6 @@ import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Header from "../components/Header";
-// import Box from "@mui/material/Box";
-// import { LinearProgress } from "@material-ui/core";
 
 /* A way to load the component only when it is needed. */
 const Home = lazy(() => import("../pages/Home"));
@@ -15,13 +13,7 @@ const Router = () => {
   return (
     <ThemeProvider theme={theme}>
       <Header></Header>
-      <Suspense
-      // fallback={
-      //   <Box sx={{ width: "100%" }}>
-      //     <LinearProgress />
-      //   </Box>
-      // }
-      >
+      <Suspense>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/employee-list" element={<Table />}></Route>
