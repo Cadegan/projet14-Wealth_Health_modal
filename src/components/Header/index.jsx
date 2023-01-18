@@ -13,20 +13,18 @@ function ResponsiveAppBar({
   borderColor = "grey.300",
 }) {
   return (
-    <React.Fragment>
-      <AppBar
-        elevation={elevation}
-        position={position}
-        sx={{ bgcolor, borderBottom, borderColor }}
-      >
-        <Container sx={{ maxWidth: "xl" }} disableGutters>
-          <Toolbar disableGutters>
-            <DesktopNav />
-            <MobileNav />
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </React.Fragment>
+    <AppBar
+      elevation={elevation}
+      position={position}
+      sx={{ bgcolor, borderBottom, borderColor }}
+    >
+      <Container sx={{ maxWidth: "xl" }} disableGutters>
+        <Toolbar disableGutters>
+          <DesktopNav />
+          <MobileNav />
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
 
