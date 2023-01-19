@@ -60,6 +60,7 @@ const columns = [
  */
 const Table = () => {
   const [pageSize, setPageSize] = useState(10);
+  const [error, setError] = useState(null);
 
   const data = useSelector((state) => state.employee.employeesArray);
 
@@ -90,36 +91,44 @@ const Table = () => {
   );
 
   useEffect(() => {
-    localStorage.setItem("employees", JSON.stringify(data), []);
-    // console.log("Registered employees", data);
-  });
+    try {
+      localStorage.setItem("employees", JSON.stringify(data), []);
+    } catch (error) {
+      setError(error);
+    }
+  }, [data]);
 
   return (
-    <DataGrid
-      rows={rows}
-      columns={columns}
-      pageSize={pageSize}
-      onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-      rowsPerPageOptions={[10, 25, 50, 100]}
-      pagination
-      sx={{
-        p: 1,
-        m: 2,
-        color: "grey.800",
-        bgcolor: "grey.50",
-        border: 1,
-        borderColor: "grey.100",
-        borderRadius: 2,
-        fontWeight: 700,
-      }}
-      components={{ Toolbar: GridToolbar }}
-      componentsProps={{
-        toolbar: {
-          showQuickFilter: true,
-          quickFilterProps: { debounceMs: 500 },
-        },
-      }}
-    />
+    <>
+      {error && (
+        <div className="error-message">An error occured: {error.message}</div>
+      )}
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={pageSize}
+        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+        rowsPerPageOptions={[10, 25, 50, 100]}
+        pagination
+        sx={{
+          p: 1,
+          m: 2,
+          color: "grey.800",
+          bgcolor: "grey.50",
+          border: 1,
+          borderColor: "grey.100",
+          borderRadius: 2,
+          fontWeight: 700,
+        }}
+        components={{ Toolbar: GridToolbar }}
+        componentsProps={{
+          toolbar: {
+            showQuickFilter: true,
+            quickFilterProps: { debounceMs: 500 },
+          },
+        }}
+      />
+    </>
   );
 };
 

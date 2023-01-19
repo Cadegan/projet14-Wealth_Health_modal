@@ -3589,16 +3589,14 @@ cacache@^16.1.0:
     tar "^6.1.11"
     unique-filename "^2.0.0"
 
-cadegancode-reactmodal@^1.0.3, cadegancode-reactmodal@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/cadegancode-reactmodal/-/cadegancode-reactmodal-1.0.4.tgz#f6f1579957de62cd4513cb63fd588d94fcb21559"
-  integrity sha512-hfhqnywvECfr4g01LmjdA+qdFO4OMBGj4Tqq24x5moXZiOmUQsFHsL49W/V7qe330hzwQXiXZUpkH3ZxYSnKGg==
+cadegancode-reactmodal@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/cadegancode-reactmodal/-/cadegancode-reactmodal-1.0.5.tgz#238abdacde22af101e4b60e2bf01629715be0bac"
+  integrity sha512-4wL80/DHvICOeeajLpDs8VShZZDwlaDl0mo2rqauMEl3bSdX+uU1sVCV5AoL8Vf9O0tvz0yetuE5QKawfZTIgA==
   dependencies:
     "@testing-library/jest-dom" "^5.16.5"
     "@testing-library/react" "^13.4.0"
     "@testing-library/user-event" "^14.4.3"
-    cadegancode-reactmodal "^1.0.3"
-    i "^0.3.7"
     node-sass "^8.0.0"
     react "^18.2.0"
     react-dom "^18.2.0"
