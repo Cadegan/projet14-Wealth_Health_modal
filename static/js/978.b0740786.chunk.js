@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkprojet14_wealth_health_modal=self.webpackChunkprojet14_wealth_health_modal||[]).push([[978],{5978:function(e,a,r){r.r(a),r.d(a,{default:function(){return t}});var h=r(1087),n=r(184);function t(){return(0,n.jsxs)("div",{className:"main errorMessage",children:[(0,n.jsx)("h1",{children:"Error 404"}),(0,n.jsx)("h2",{children:"Page not found"}),(0,n.jsx)(h.rU,{className:"homePage-link",to:"/",children:"Go back to the home page"})]})}}}]);
+//# sourceMappingURL=978.b0740786.chunk.js.map
