@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/projet14-wealth_health_modal/static/css/main.e78d3c1e.css",
-    "main.js": "/projet14-wealth_health_modal/static/js/main.57bca121.js",
+    "main.js": "/projet14-wealth_health_modal/static/js/main.036b8143.js",
     "static/css/387.d124909e.chunk.css": "/projet14-wealth_health_modal/static/css/387.d124909e.chunk.css",
     "static/js/387.dd24d76c.chunk.js": "/projet14-wealth_health_modal/static/js/387.dd24d76c.chunk.js",
     "static/js/500.4f038bc1.chunk.js": "/projet14-wealth_health_modal/static/js/500.4f038bc1.chunk.js",
@@ -15,7 +15,7 @@
     "static/media/cross.svg": "/projet14-wealth_health_modal/static/media/cross.8d0ad1a7fc3c03ec8c11571962493bef.svg",
     "index.html": "/projet14-wealth_health_modal/index.html",
     "main.e78d3c1e.css.map": "/projet14-wealth_health_modal/static/css/main.e78d3c1e.css.map",
-    "main.57bca121.js.map": "/projet14-wealth_health_modal/static/js/main.57bca121.js.map",
+    "main.036b8143.js.map": "/projet14-wealth_health_modal/static/js/main.036b8143.js.map",
     "387.d124909e.chunk.css.map": "/projet14-wealth_health_modal/static/css/387.d124909e.chunk.css.map",
     "387.dd24d76c.chunk.js.map": "/projet14-wealth_health_modal/static/js/387.dd24d76c.chunk.js.map",
     "500.4f038bc1.chunk.js.map": "/projet14-wealth_health_modal/static/js/500.4f038bc1.chunk.js.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.e78d3c1e.css",
-    "static/js/main.57bca121.js"
+    "static/js/main.036b8143.js"
   ]
 }
